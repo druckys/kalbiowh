@@ -23,10 +23,6 @@
         href="{{ asset('library/selectric/public/selectric.css') }}">
     <link rel="stylesheet"
         href="{{ asset('library/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('library/prismjs/themes/prism.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('library/datatables/media/css/jquery.dataTables.min.css') }}">
 
 
     @stack('style')
@@ -80,7 +76,6 @@
     <script src="{{ asset('js/stisla.js') }}"></script>
 
     @stack('scripts')
-
     <!-- Template JS File -->
     <script src="{{ asset('js/scripts.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
@@ -90,9 +85,6 @@
     <script src="{{ asset('library/select2/dist/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('library/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
     <script src="{{ asset('library/selectric/public/jquery.selectric.min.js') }}"></script>
-    <script src="{{ asset('library/prismjs/prism.js') }}"></script>
-    <script src="{{ asset('library/datatables/media/js/jquery.dataTables.js') }}"></script>
-    <script src="{{ asset('library/datatables/media/js/jquery.dataTables.min.js') }}"></script>
 
 
     <!-- Page Specific JS File -->

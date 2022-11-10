@@ -8,9 +8,9 @@
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
-            <li class="{{ Request::is('list-tools') ? 'active' : '' }}">
+            <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
                 <a class="nav-link"
-                    href="{{ url('list-tools') }}"><i class="far fa-square"></i> <span>List Tools</span></a>
+                    href="{{ url('tool') }}"><i class="far fa-square"></i> <span>List Tools</span></a>
             </li>
 
             <li class="menu-header">Log Book</li>

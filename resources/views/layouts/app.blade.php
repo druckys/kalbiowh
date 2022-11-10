@@ -16,6 +16,19 @@
         crossorigin="anonymous"
         referrerpolicy="no-referrer" />
 
+    <!-- CSS Libraries -->
+    <link rel="stylesheet"
+        href="{{ asset('library/bootstrap-daterangepicker/daterangepicker.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('library/selectric/public/selectric.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('library/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('library/prismjs/themes/prism.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('library/datatables/media/css/jquery.dataTables.min.css') }}">
+
+
     @stack('style')
 
     <!-- Template CSS -->
@@ -23,7 +36,6 @@
         href="{{ asset('css/style.css') }}">
     <link rel="stylesheet"
         href="{{ asset('css/components.css') }}">
-
     <!-- Start GA -->
     <script async
         src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
@@ -72,6 +84,20 @@
     <!-- Template JS File -->
     <script src="{{ asset('js/scripts.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
+
+    <!-- JS Libraies -->
+    <script src="{{ asset('library/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }}"></script>
+    <script src="{{ asset('library/select2/dist/js/select2.full.min.js') }}"></script>
+    <script src="{{ asset('library/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+    <script src="{{ asset('library/selectric/public/jquery.selectric.min.js') }}"></script>
+    <script src="{{ asset('library/prismjs/prism.js') }}"></script>
+    <script src="{{ asset('library/datatables/media/js/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('library/datatables/media/js/jquery.dataTables.min.js') }}"></script>
+
+
+    <!-- Page Specific JS File -->
+    <script src="{{ asset('js/page/forms-advanced-forms.js') }}"></script>
+    <script src="{{ asset('js/page/bootstrap-modal.js') }}"></script>
 </body>
 
 </html>

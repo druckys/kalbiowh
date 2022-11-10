@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\LogBook;
 use Illuminate\Http\Request;
 
-class PeminjamanController extends Controller
+class PengembalianController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,8 @@ class PeminjamanController extends Controller
     public function index()
     {
         $LogBooks = LogBook::all();
-        return view('peminjaman.index', compact('LogBooks'));
+        return view('pengembalian.index', compact('LogBooks'));
     }
-    
 
     /**
      * Show the form for creating a new resource.
@@ -26,7 +25,7 @@ class PeminjamanController extends Controller
      */
     public function create()
     {
-        return view ('peminjaman.create');
+        
     }
 
     /**
@@ -37,9 +36,8 @@ class PeminjamanController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->except(['_token', 'return_date']));
-        LogBook::create($request->except(['_token']));
-        return redirect('/peminjaman');
+        LogBook::create($request->except(['_token', 'borrow_date']));
+        return redirect('/pengembalian');
     }
 
     /**
@@ -62,7 +60,7 @@ class PeminjamanController extends Controller
     public function edit($id)
     {
         $LogBooks = LogBook::find($id);
-        return view('peminjaman.edit', compact(['LogBooks']));
+        return view('pengembalian.edit', compact(['LogBooks']));
     }
 
     /**
@@ -72,11 +70,11 @@ class PeminjamanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update( Request $request, $id)
+    public function update(Request $request, $id)
     {
         $LogBooks = LogBook::find($id);
-        $LogBooks->update($request->except(['_token']));
-        return redirect('/peminjaman');
+        $LogBooks->update($request->except(['_token', 'borrow_date']));
+        return redirect('/pengembalian');
     }
 
     /**
@@ -90,6 +88,6 @@ class PeminjamanController extends Controller
         $LogBooks = LogBook::find($id);
         $LogBooks->delete();
         
-        return redirect('/peminjaman');
+        return redirect('/pengembalian');
     }
 }

@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ToolController;
 use App\Http\Controllers\PeminjamanController;
+use App\Http\Controllers\HistoryToolController;
+use App\Http\Controllers\PengembalianController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +29,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resources([
         'tool' => ToolController::class,
         'peminjaman' => PeminjamanController::class,
+        'pengembalian' => PengembalianController::class,
+        'history' => HistoryToolController::class,
+
     ]);
 });
 

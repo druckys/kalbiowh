@@ -18,13 +18,13 @@
                 <a class="nav-link"
                     href="{{ url('peminjaman') }}"><i class="far fa-square"></i> <span>Peminjaman</span></a>
                 <a class="nav-link"
-                    href="{{ url('blank-page') }}"><i class="far fa-square"></i> <span>Pengembalian</span></a>
+                    href="{{ url('pengembalian') }}"><i class="far fa-square"></i> <span>Pengembalian</span></a>
             </li>
             
             <li class="menu-header">History</li>
             <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
                 <a class="nav-link"
-                    href="{{ url('blank-page') }}"><i class="far fa-square"></i> <span>History</span></a>
+                    href="{{ url('history') }}"><i class="far fa-square"></i> <span>History</span></a>
             </li>
            
         <div class="hide-sidebar-mini mt-4 mb-4 p-3">

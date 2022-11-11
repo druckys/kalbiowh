@@ -51,14 +51,18 @@
                                             <td>
                                                 <a href="{{url('peminjaman/' . $item->id . '/edit' )}}" title="Edit"><button type="button" class="btn btn-icon icon-left btn-warning">
                                                     <i class="far fa-edit"></i>Edit</button></a>
-                                                <form method="POST" action="{{ url('peminjaman/' . $item->id)}}" accept-charset="UTF-8" style="display:inline">
-                                                {{ method_field('DELETE')}}
-                                                {{ csrf_field() }}
-                                            
-                                                <button type="submit" class="btn btn-icon icon-left btn-danger" title="Delete" onclick="return confirm('Confirm Delete?')"><i class="fas fa-times"></i>Delete</button>
-                                                {{-- <button class="btn btn-icon icon-left btn-danger"
-                                                data-confirm="Realy?|Do you want to continue?" type="submit" title="Delete"><i class="fas fa-times"></i>Delete</button></a> --}}
-                                            </form>
+                                                {{-- <form method="POST" action="{{ url('peminjaman/' . $item->id)}}" accept-charset="UTF-8" style="display:inline">
+                                                    {{ method_field('DELETE')}}
+                                                    {{ csrf_field() }}
+                                                
+                                                    <button type="submit" class="btn btn-icon icon-left btn-danger" title="Delete" onclick="return confirm('Confirm Delete?')"><i class="fas fa-times"></i>Delete</button>
+                                                    <button class="btn btn-icon icon-left btn-danger"
+                                                    data-confirm="Realy?|Do you want to continue?" type="submit" title="Delete"><i class="fas fa-times"></i>Delete</button></a>
+                                                    
+                                                </form> --}}
+                                                <a class="btn btn-icon icon-left btn-danger delete" href="#" data-id="{{ $item->id }}" data-initial="{{ $item->initial_name }}" 
+                                                    data-nama="{{ $item->nama }}">Delete</a>
+                                                
                                             </td>
                                         </tr> 
                                     @endforeach
@@ -74,6 +78,32 @@
 @endsection
 
 @push('scripts')
+
+    <script>
+        $('.delete').on('click', function (){
+            var id = $(this).attr('data-id');
+            var nama = $(this).attr('data-nama');
+            var initial = $(this).attr('data-initial');
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You will delete data of "+nama+" with initial "+initial+"",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#d33#3085d6',
+                confirmButtonText: 'Delete'
+            }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = "delete/"+id+""
+                // Swal.fire(
+                // 'Deleted!',
+                // 'Your data has been deleted.',
+                // 'success'
+                // )
+            }
+            })
+        })
+    </script>
     
     <script>
         $(document).ready( function () {
@@ -89,4 +119,7 @@
     <!-- Page Specific JS File -->
     <script src="{{ asset('js/page/modules-datatables.js') }}"></script>
     
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.4.0.min.js" integrity="sha256-mBCu5+bVfYzOqpYyK4jm30ZxAZRomuErKEFJFIyrwvM=" crossorigin="anonymous"></script>
 @endpush

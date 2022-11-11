@@ -33,6 +33,9 @@ Route::group(['middleware' => ['auth']], function () {
         'history' => HistoryToolController::class,
 
     ]);
+    
+    Route::get('delete/{id}', [PeminjamanController::class, 'destroy'])->name('destroy');
+    
 });
 
 require __DIR__.'/auth.php';

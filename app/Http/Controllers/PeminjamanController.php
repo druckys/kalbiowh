@@ -39,7 +39,7 @@ class PeminjamanController extends Controller
     {
         //dd($request->except(['_token', 'return_date']));
         LogBook::create($request->except(['_token']));
-        return redirect('/peminjaman')->with('toast_success', 'Data Berhasil Ditambahkan!');
+        return redirect('/peminjaman')->with('toast_success', 'Berhasil Ditambahkan!');
     }
 
     /**
@@ -76,7 +76,7 @@ class PeminjamanController extends Controller
     {
         $LogBooks = LogBook::find($id);
         $LogBooks->update($request->except(['_token']));
-        return redirect('/peminjaman');
+        return redirect('/peminjaman')->with('toast_success', 'Berhasil Diupdate!');
     }
 
     /**
@@ -90,6 +90,6 @@ class PeminjamanController extends Controller
         $LogBooks = LogBook::find($id);
         $LogBooks->delete();
         
-        return redirect('/peminjaman');
+        return redirect('/peminjaman')->with('toast_error', 'Data Berhasil Dihapus!');
     }
 }

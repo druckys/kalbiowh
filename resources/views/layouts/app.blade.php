@@ -60,7 +60,7 @@
 
             <!-- Content -->
             @yield('main')
-
+            @include('sweetalert::alert')
             <!-- Footer -->
             @include('components.footer')
         </div>

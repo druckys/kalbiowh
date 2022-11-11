@@ -39,7 +39,7 @@ class PeminjamanController extends Controller
     {
         //dd($request->except(['_token', 'return_date']));
         LogBook::create($request->except(['_token']));
-        return redirect('/peminjaman');
+        return redirect('/peminjaman')->with('toast_success', 'Data Berhasil Ditambahkan!');
     }
 
     /**

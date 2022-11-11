@@ -74,7 +74,7 @@
                                     </div>
                         
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block " tabindex="6"
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block" id="toastr-2" tabindex="6"
                                         onclick="return confirm('Confirm Return?')">
                                         Save
                                         </button>

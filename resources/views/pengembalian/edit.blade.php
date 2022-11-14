@@ -27,14 +27,6 @@
                                     <div class="form-group">
                                         <label>Nama Peralatan</label>
                                         <input type="text" class="form-control" name="nama" value="{{$LogBooks->nama}}" tabindex="1" disabled required autofocus>
-                                        <div class="invalid-feedback" >
-                                        Please fill in your tools name
-                                        </div>
-                                        @error('nama')
-                                            <div class="alert alert-danger">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
                                     </div>
 
                                     <div class="form-group">
@@ -43,9 +35,6 @@
                                             <option value="Tekiro" @if($LogBooks->brand == "Tekiro") selected @endif>Tekiro</option>
                                             <option value="Jakemy" @if($LogBooks->brand == "Jakemy") selected @endif>Jakemy</option>
                                             <option value="Other.." @if($LogBooks->brand == "Other..") selected @endif>Other..</option>
-                                            <div class="invalid-feedback">
-                                                Please fill in your brand select
-                                            </div>
                                         </select>
                                     </div>
 
@@ -57,15 +46,7 @@
                                     <div class="form-group">
                                         <label>Initial Name</label>
                                         <input type="text" name="initial_name" value="{{$LogBooks->initial_name}}" class="form-control" maxlength="3" 
-                                        style="text-transform:uppercase" tabindex="4" disabled required autofocus>
-                                        <div class="invalid-feedback">
-                                            Please fill in your initial name
-                                        </div>
-                                        @error('initial_name')
-                                            <div class="alert alert-danger">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
+                                        style="text-transform:uppercase" tabindex="4" required  disabled>
                                     </div>
                                     
                                     <div class="form-group">
@@ -74,8 +55,7 @@
                                     </div>
                         
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block" id="toastr-2" tabindex="6"
-                                        onclick="return confirm('Confirm Return?')">
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="6">
                                         Save
                                         </button>
                                     </div>

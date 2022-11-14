@@ -41,9 +41,6 @@
                                             <option value="Tekiro">Tekiro</option>
                                             <option value="Jakemy">Jakemy</option>
                                             <option value="Other..">Other..</option>
-                                            <div class="invalid-feedback">
-                                                Please fill in your brand select
-                                            </div>
                                         </select>
                                     </div>
                                     <div class="form-group">

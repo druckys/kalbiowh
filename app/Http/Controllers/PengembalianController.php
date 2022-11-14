@@ -74,7 +74,7 @@ class PengembalianController extends Controller
     {
         $LogBooks = LogBook::find($id);
         $LogBooks->update($request->except(['_token', 'borrow_date']));
-        return redirect('/pengembalian');
+        return redirect('/pengembalian')->with('toast_info', 'Berhasil Diupdate!');
     }
 
     /**

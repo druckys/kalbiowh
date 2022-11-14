@@ -30,19 +30,19 @@
                                     id="myTable">
                                     <thead>
                                         <tr>
-                                            <th class="text-center">No</th>
-                                            <th>Nama Peralatan</th>
-                                            <th>Brand</th>
-                                            <th>Tanggal Pengembalian</th>
-                                            <th>Initial</th>
-                                            <th>Deskripsi</th>
-                                            <th>Action</th>
+                                            <th class="col-1 text-center ">No</th>
+                                            <th class="col-2">Nama Peralatan</th>
+                                            <th class="col-1">Brand</th>
+                                            <th class="col-2">Tanggal Pengembalian</th>
+                                            <th class="col-1">Initial</th>
+                                            <th class="col-2">Deskripsi</th>
+                                            <th class="col-2">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($LogBooks as $item )
                                         <tr>
-                                            <td>{{$loop->iteration}}</td>
+                                            <td class="text-center">{{$loop->iteration}}</td>
                                             <td>{{$item->nama}}</td>
                                             <td>{{$item->brand}}</td>
                                             <td>{{$item->return_date}}</td>

@@ -4,9 +4,9 @@
 
 @push('style')
     <!-- CSS Libraries -->
-    {{-- <link rel="stylesheet" href="{{ asset('library/datatables/media/css/jquery.dataTables.min.css') }}"> --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.13.1/datatables.min.css"/>
+    <link rel="stylesheet" href="{{ asset('library/datatables/media/css/jquery.dataTables.min.css') }}">
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> --}}
+    {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.13.1/datatables.min.css"/> --}}
     
 @endpush
 
@@ -22,8 +22,8 @@
                     <div class="card">
                         <div class="card-body p-0">
                             <a href="/peminjaman/create" class="btn btn-primary btn-lg mt-3 mb-3" tabindex="4">
-                                <i class="fa-regular fa-user-plus"></i>
-                                Add List
+                                <i class="fa-solid fa-user-plus"></i>
+                               Add List
                             </a>
 
                             <div class="table-responsive">
@@ -31,19 +31,19 @@
                                     id="myTable">
                                     <thead>
                                         <tr>
-                                            <th class="text-center">No</th>
-                                            <th>Nama Peralatan</th>
-                                            <th>Brand</th>
-                                            <th>Tanggal Pinjam</th>
-                                            <th>Initial</th>
-                                            <th>Deskripsi</th>
-                                            <th>Action</th>
+                                            <th class="col-1 text-center ">No</th>
+                                            <th class="col-2">Nama Peralatan</th>
+                                            <th class="col-1">Brand</th>
+                                            <th class="col-1">Tanggal Pinjam</th>
+                                            <th class="col-1">Initial</th>
+                                            <th class="col-2">Deskripsi</th>
+                                            <th class="col-2">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($LogBooks as $item )
                                         <tr>
-                                            <td>{{$loop->iteration}}</td>
+                                            <td class="text-center">{{$loop->iteration}}</td>
                                             <td>{{$item->nama}}</td>
                                             <td>{{$item->brand}}</td>
                                             <td>{{$item->borrow_date}}</td>

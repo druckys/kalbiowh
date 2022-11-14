@@ -22,6 +22,7 @@
                     <div class="card">
                         <div class="card-body p-0">
                             <a href="/peminjaman/create" class="btn btn-primary btn-lg mt-3 mb-3" tabindex="4">
+                                <i class="fa-regular fa-user-plus"></i>
                                 Add List
                             </a>
 
@@ -61,7 +62,7 @@
                                                     
                                                 </form> --}}
                                                 <a class="btn btn-icon icon-left btn-danger delete" href="#" data-id="{{ $item->id }}" data-initial="{{ $item->initial_name }}" 
-                                                    data-nama="{{ $item->nama }}">Delete</a>
+                                                    data-nama="{{ $item->nama }}"><i class="fa fa-trash"></i> Delete</a>
                                                 
                                             </td>
                                         </tr> 
@@ -95,6 +96,7 @@
             }).then((result) => {
             if (result.isConfirmed) {
                 window.location = "delete/"+id+""
+                
                 // Swal.fire(
                 // 'Deleted!',
                 // 'Your data has been deleted.',

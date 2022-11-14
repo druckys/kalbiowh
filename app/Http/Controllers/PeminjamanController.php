@@ -76,7 +76,7 @@ class PeminjamanController extends Controller
     {
         $LogBooks = LogBook::find($id);
         $LogBooks->update($request->except(['_token']));
-        return redirect('/peminjaman')->with('toast_success', 'Berhasil Diupdate!');
+        return redirect('/peminjaman')->with('toast_info', 'Berhasil Diupdate!');
     }
 
     /**

@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\LogBook;
 use Illuminate\Http\Request;
+use App\Exports\HistoryExport;
+use Maatwebsite\Excel\Facades\Excel;
+
+use App\Http\Controllers\Controller;
 
 class HistoryToolController extends Controller
 {
@@ -83,4 +87,10 @@ class HistoryToolController extends Controller
     {
         //
     }
+
+    public function export()
+	{
+		return Excel::download(new HistoryExport, 'History_Peminjaman.xlsx');
+        
+	}
 }

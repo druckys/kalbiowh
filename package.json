@@ -2,7 +2,7 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-    "build": "vite build",
+        "build": "vite build",
         "development": "mix",
         "watch": "mix watch",
         "watch-poll": "mix watch -- --watch-options-poll=1000",
@@ -27,6 +27,7 @@
         "datatables.net-select-bs4": "^1.2.7",
         "dropzone": "^5.5.1",
         "flag-icon-css": "^3.2.1",
+        "font-awesome": "^4.7.0",
         "fullcalendar": "^3.10.0",
         "gmaps": "^0.4.24",
         "ionicons201": "1.0.0",

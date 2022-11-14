@@ -21,9 +21,9 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body p-0">
-                            {{-- <a href="/pengembalian/create" class="btn btn-primary btn-lg mt-3 mb-3" tabindex="4">
-                                Add List
-                            </a> --}}
+                            <a href="{{ route('history.export') }}" class="btn btn-success btn-lg mt-3 mb-3" tabindex="4">
+                                Export
+                            </a>
 
                             <div class="table-responsive">
                                 <table class="table-striped table"

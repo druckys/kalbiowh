@@ -17,8 +17,12 @@ use App\Http\Controllers\PengembalianController;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/tool');
 });
 
 Route::get('/dashboard', function () {
@@ -34,8 +38,12 @@ Route::group(['middleware' => ['auth']], function () {
 
     ]);
     
+    //harus pake ini agar alert/toast nya muncul
     Route::get('delete/{id}', [PeminjamanController::class, 'destroy'])->name('destroy');
-    
+
+    //untuk route export excel
+    Route::get('history-export', [HistoryToolController::class, 'export'])->name('history.export');
+
 });
 
 require __DIR__.'/auth.php';

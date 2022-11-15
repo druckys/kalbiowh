@@ -14,7 +14,7 @@
             </li>
 
             <li class="menu-header">Log Book</li>
-            <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
+            <li class="{{ Request::is('eror-404') ? 'active' : '' }}">
                 <a class="nav-link"
                     href="{{ url('peminjaman') }}"><i class="fa-solid fa-file-circle-minus"></i> <span>Peminjaman</span></a>
                 <a class="nav-link"
@@ -28,9 +28,9 @@
             </li>
            
         <div class="hide-sidebar-mini mt-4 mb-4 p-3">
-            <a href="https://getstisla.com/docs"
-                class="btn btn-primary btn-lg btn-block btn-icon-split">
-                <i class="fas fa-rocket"></i> Documentation
+            <a href="https://www.wati.io/free-whatsapp-link-generator/"
+                class="btn btn-success btn-lg btn-block btn-icon-split">
+                <i class="fas fa-rocket"></i> Whatsapp
             </a>
         </div>
     </aside>

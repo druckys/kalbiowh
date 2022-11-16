@@ -7,12 +7,15 @@
             <a href="index.html">KGM</a>
         </div>
         <ul class="sidebar-menu">
-            <li class="menu-header">Dashboard</li>
-            <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
-                <a class="nav-link"
-                    href="{{ url('tool') }}"><i class="fa-solid fa-screwdriver-wrench"></i> <span>List Tools</span></a>
-            </li>
-
+            
+            @if (auth()->user()->username == "AAA")
+                <li class="menu-header">Dashboard</li>
+                <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
+                    <a class="nav-link"
+                        href="{{ url('tool') }}"><i class="fa-solid fa-screwdriver-wrench"></i> <span>List Tools</span></a>
+                </li>
+            @endif
+            
             <li class="menu-header">Log Book</li>
             <li class="{{ Request::is('eror-404') ? 'active' : '' }}">
                 <a class="nav-link"

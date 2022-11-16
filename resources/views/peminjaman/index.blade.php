@@ -61,8 +61,10 @@
                                                     data-confirm="Realy?|Do you want to continue?" type="submit" title="Delete"><i class="fas fa-times"></i>Delete</button></a>
                                                     
                                                 </form> --}}
-                                                <a class="btn btn-icon icon-left btn-danger delete" href="#" data-id="{{ $item->id }}" data-initial="{{ $item->initial_name }}" 
-                                                    data-nama="{{ $item->nama }}"><i class="fa fa-trash"></i> Delete</a>
+                                                @if (auth()->user()->username == "AAA")
+                                                    <a class="btn btn-icon icon-left btn-danger delete" href="#" data-id="{{ $item->id }}" data-initial="{{ $item->initial_name }}" 
+                                                        data-nama="{{ $item->nama }}"><i class="fa fa-trash"></i> Delete</a>
+                                                @endif
                                                 
                                             </td>
                                         </tr> 

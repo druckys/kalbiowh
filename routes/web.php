@@ -41,8 +41,10 @@ Route::group(['middleware' => ['auth', 'ceklevel:AAA,ATG']], function () {
     //harus pake ini agar alert/toast nya muncul
     Route::get('delete/{id}', [PeminjamanController::class, 'destroy'])->name('destroy');
 
-    //untuk route export excel
+    //untuk route export/import excel
     Route::get('history-export', [HistoryToolController::class, 'export'])->name('history.export');
+    Route::get('history-import', [HistoryToolController::class, 'import'])->name('history.import');
+    Route::post('history-upload', [HistoryToolController::class, 'uploadHistory'])->name('history.upload');
 
 });
 

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Peminjaman')
+@section('title', 'History')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -21,7 +21,8 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body p-0">
-                            <a href="{{ route('history.export') }}" class="btn btn-success px-3 mt-3 mb-3" tabindex="4">
+                            <a href="/history-import" class="btn btn-dark px-3 mt-3 mb-3"><i class="fa-solid fa-upload"></i> Import</a>
+                            <a href="{{ route('history.export') }}" class="btn btn-success px-3 mt-3 mb-3">
                                 <i class="fa-solid fa-download"></i>
                                 Export
                             </a>

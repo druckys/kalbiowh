@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\LogBook;
 use Illuminate\Http\Request;
 use App\Exports\HistoryExport;
-use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\HistoryImport;
 
 use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 
 class HistoryToolController extends Controller
 {
@@ -88,9 +89,26 @@ class HistoryToolController extends Controller
         //
     }
 
+    // for export excel file
     public function export()
 	{
 		return Excel::download(new HistoryExport, 'History_Peminjaman.xlsx');
         
 	}
+
+    public function import()
+	{
+		return view('history.import');
+	}
+
+    // for import excel file
+    public function uploadHistory()
+	{
+        Excel::import(new HistoryImport,request()->file('file'));
+
+		// return redirect()->route('history.import')->with('toast_info', 'Tabel berhasil diupload!');
+        // return back();
+        return redirect('/history');
+	}
+
 }

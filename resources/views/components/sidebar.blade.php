@@ -16,12 +16,18 @@
                 </li>
             @endif
             
-            <li class="menu-header">Log Book</li>
+            <li class="menu-header">Log Tools</li>
             <li class="{{ Request::is('eror-404') ? 'active' : '' }}">
                 <a class="nav-link"
                     href="{{ url('peminjaman') }}"><i class="fa-solid fa-file-circle-minus"></i> <span>Peminjaman</span></a>
                 <a class="nav-link"
                     href="{{ url('pengembalian') }}"><i class="fa-solid fa-file-circle-plus"></i> <span>Pengembalian</span></a>
+            </li>
+
+            <li class="menu-header">Log Materials</li>
+            <li class="{{ Request::is('eror-404') ? 'active' : '' }}">
+                <a class="nav-link"
+                    href="{{ url('materialout') }}"><i class="fa-solid fa-file-circle-minus"></i> <span>Material Keluar</span></a>
             </li>
             
             <li class="menu-header">History</li>
@@ -31,7 +37,11 @@
             </li>
            
         <div class="hide-sidebar-mini mt-4 mb-4 p-3">
-            <a href="https://www.wati.io/free-whatsapp-link-generator/"
+            {{-- <a href="https://www.wati.io/free-whatsapp-link-generator/"
+                class="btn btn-success btn-lg btn-block btn-icon-split">
+                <i class="fas fa-rocket"></i> Whatsapp
+            </a> --}}
+            <a href="https://wa.me/6289617275564?text=Hello%20world!"
                 class="btn btn-success btn-lg btn-block btn-icon-split">
                 <i class="fas fa-rocket"></i> Whatsapp
             </a>

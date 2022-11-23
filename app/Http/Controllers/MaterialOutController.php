@@ -2,15 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\LogBook;
+use App\Models\LogMaterial;
 use Illuminate\Http\Request;
-use App\Exports\HistoryExport;
-use App\Imports\HistoryImport;
 
-use App\Http\Controllers\Controller;
-use Maatwebsite\Excel\Facades\Excel;
-
-class HistoryToolController extends Controller
+class MaterialOutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +14,8 @@ class HistoryToolController extends Controller
      */
     public function index()
     {
-        $LogBooks = LogBook::all();
-        return view('history.index', compact('LogBooks'));
+        $LogMaterial = LogMaterial::all();
+        return view('materialout.index', compact('LogMaterial'));
     }
 
     /**
@@ -30,7 +25,7 @@ class HistoryToolController extends Controller
      */
     public function create()
     {
-        //
+        return view('materialout.create');
     }
 
     /**
@@ -41,7 +36,9 @@ class HistoryToolController extends Controller
      */
     public function store(Request $request)
     {
-
+        LogMaterial::create($request->except(['_token']));
+        return redirect('/materialout')->with('toast_success', 'Berhasil Ditambahkan!');
+    
     }
 
     /**
@@ -63,7 +60,8 @@ class HistoryToolController extends Controller
      */
     public function edit($id)
     {
-        //
+        $LogMaterial = LogMaterial::find($id);
+        return view('materialout.edit', compact(['LogMaterial']));
     }
 
     /**
@@ -75,7 +73,9 @@ class HistoryToolController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $LogMaterial = LogMaterial::find($id);
+        $LogMaterial->update($request->except(['_token']));
+        return redirect('/materialout')->with('toast_info', 'Berhasil Diupdate!');
     }
 
     /**
@@ -86,29 +86,9 @@ class HistoryToolController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
-
-    // for export excel file
-    public function export()
-	{
-		return Excel::download(new HistoryExport, 'History_Peminjaman.xlsx');
+        $LogMaterial = LogMaterial::find($id);
+        $LogMaterial->delete();
         
-	}
-
-    public function import()
-	{
-		return view('history.import');
-	}
-
-    // for import excel file
-    public function uploadHistory()
-	{
-        Excel::import(new HistoryImport,request()->file('file'));
-
-		// return redirect()->route('history.import')->with('toast_info', 'Tabel berhasil diupload!');
-        // return back();
-        return redirect('/history')->with('toast_success', 'Imported!');
-	}
-
+        return redirect('/materialout')->with('toast_error', 'Data Berhasil Dihapus!');
+    }
 }

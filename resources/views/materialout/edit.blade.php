@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Edit Peminjaman')
+@section('title', 'Edit Pengambilan Material')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -9,7 +9,7 @@
 @section('main')<div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Edit Data Peminjam</h1>
+                <h1>Edit Data Log Material</h1>
             </div>
             <div class="section-body">
                 <div class="container mt-5">
@@ -18,17 +18,17 @@
                             <a href="/peminjaman" class="btn btn-danger mb-5 pl-4 pr-4">Cancel</a>
                             <div class="card card-primary">
                               <div class="card-header">
-                                <h4>Edit Data Peminjam</h4></div>
+                                <h4>Edit Data</h4></div>
                     
                                 <div class="card-body">
-                                    <form method="POST" action="/peminjaman/{{$LogBooks->id}}" class="needs-validation" novalidate="">
+                                    <form method="POST" action="/materialout/{{$LogMaterial->id}}" class="needs-validation" novalidate="">
                                     @csrf
                                     @method('put')
                                     <div class="form-group">
-                                        <label>Nama Peralatan</label>
-                                        <input type="text" class="form-control" name="nama" value="{{$LogBooks->nama}}" tabindex="1" required autofocus>
+                                        <label>Nama Material</label>
+                                        <input type="text" class="form-control" name="nama_material" value="{{$LogMaterial->nama_material}}" tabindex="1" required autofocus>
                                         <div class="invalid-feedback" >
-                                        Please fill in your tools name
+                                        Please fill in your material name
                                         </div>
                                         @error('nama')
                                             <div class="alert alert-danger">
@@ -38,8 +38,24 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Brand</label>
-                                        <select type="text" class="form-control selectric" name="brand" value="{{$LogBooks->brand}}" tabindex="2" required autofocus> 
+                                        <label>Ukuran</label>
+                                        <input type="text" class="form-control" name="ukuran" value="{{$LogMaterial->ukuran}}" tabindex="1" required autofocus>
+                                        <div class="invalid-feedback" >
+                                        Please fill in your size material
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Jumlah</label>
+                                        <input type="text" class="form-control" name="jumlah" value="{{$LogMaterial->jumlah}}" tabindex="1" required autofocus>
+                                        <div class="invalid-feedback" >
+                                        Please fill in your quantity
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Satuan</label>
+                                        <select type="text" class="form-control selectric" name="satuan" value="{{$LogMaterial->satuan}}" tabindex="2" required autofocus> 
                                             <option value="Tekiro" @if($LogBooks->brand == "Tekiro") selected @endif>Tekiro</option>
                                             <option value="Jakemy" @if($LogBooks->brand == "Jakemy") selected @endif>Jakemy</option>
                                             <option value="Other.." @if($LogBooks->brand == "Other..") selected @endif>Other..</option>
@@ -50,27 +66,17 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Tanggal Peminjaman</label>
-                                        <input type="date" name="borrow_date" value="{{$LogBooks->borrow_date}}" class="form-control datepicker" tabindex="3" required autofocus>
+                                        <label>Tanggal</label>
+                                        <input type="date" name="tanggal" value="{{$LogMaterial->tanggal}}" class="form-control datepicker" tabindex="3" required autofocus>
                                     </div>
 
                                     <div class="form-group">
                                         <label>Initial Name</label>
-                                        <input type="text" name="initial_name" value="{{$LogBooks->initial_name}}" class="form-control" maxlength="3" 
+                                        <input type="text" name="initial" value="{{$LogMaterial->initial}}" class="form-control" maxlength="3" 
                                         style="text-transform:uppercase" tabindex="4" required autofocus>
                                         <div class="invalid-feedback">
                                             Please fill in your initial name
                                         </div>
-                                        @error('initial_name')
-                                            <div class="alert alert-danger">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label>Deskripsi</label>
-                                        <input type="text" name="deskripsi" value="{{$LogBooks->deskripsi}}" class="form-control" maxlength="50" tabindex="5">
                                     </div>
                         
                                     <div class="form-group">

@@ -16,6 +16,8 @@
                 <h1>List tools</h1>
             </div>
             <div class="section-body">
+                <h5 class="pl-5"><span id="tanggalwaktu"></span></h5>
+                <h6 class="pl-5"><span id="clock12"></span></h6>
                 <h2 class="section-title">List Tools</h2>
                 <p class="section-lead">This page is just an example for you to create your own page.</p>
                 <div class="col ">
@@ -52,9 +54,49 @@
             </div>
         </section>
     </div>
+    
 @endsection
 
 @push('scripts')
+<script>
+    var tw = new Date();
+    if (tw.getTimezoneOffset() == 0) (a=tw.getTime() + ( 7 *60*60*1000))
+    else (a=tw.getTime());
+    tw.setTime(a);
+    var tahun= tw.getFullYear ();
+    var hari= tw.getDay ();
+    var bulan= tw.getMonth ();
+    var tanggal= tw.getDate ();
+    var hariarray=new Array("Minggu,","Senin,","Selasa,","Rabu,","Kamis,","Jum'at,","Sabtu,");
+    var bulanarray=new Array("Jan","Feb","Mar","Apr","Mei","Jun","Jul","Aug","Sep","Oct","Nov","Des");
+    document.getElementById("tanggalwaktu").innerHTML = hariarray[hari]+" "+tanggal+" "+bulanarray[bulan]+" "+tahun;
+</script>   
+
+<script type="text/javascript" charset="utf-8">
+    const clock12 = document.getElementById('clock12')
+    const clock24 = document.getElementById('clock24')
+
+    // Concatenate a zero to the left of every single digit time frame
+    function concatZero(timeFrame) {
+    return timeFrame < 10 ? '0'.concat(timeFrame) : timeFrame
+    }
+
+    function realTime() {
+    let date = new Date()
+    let sec = date.getSeconds()
+    let mon = date.getMinutes()
+    let hr = date.getHours()
+    let day = date.getDay()
+    // 12 hour time
+    // If the hour equals 0 or 12, the remainder equals 0, so output 12 instead. (0 || 12 = 12)
+    clock12.textContent = `${concatZero((hr % 12) || 12)} : ${concatZero(mon)} : ${concatZero(sec)} ${hr >= 12 ? 'PM' : 'AM'}`
+    // 24 hour time
+    clock24.textContent = `${concatZero(day)}, ${concatZero(hr)} : ${concatZero(mon)} : ${concatZero(sec)}`
+    }
+
+    setInterval(realTime, 1000)
+</script>
+
 <script>
     $(document).ready( function () {
         $('#myTable2').DataTable();

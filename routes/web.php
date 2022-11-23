@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ToolController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\HistoryToolController;
+use App\Http\Controllers\MaterialOutController;
 use App\Http\Controllers\PengembalianController;
 
 /*
@@ -35,6 +36,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:AAA,ATG']], function () {
         'peminjaman' => PeminjamanController::class,
         'pengembalian' => PengembalianController::class,
         'history' => HistoryToolController::class,
+        'materialout' => MaterialOutController::class,
 
     ]);
     

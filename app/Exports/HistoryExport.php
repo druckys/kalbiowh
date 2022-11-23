@@ -29,7 +29,7 @@ class HistoryExport implements FromCollection, WithHeadings
                 "Tanggal Peminjaman", 
                 "Tanggal Pengembalian", 
                 "Initial", 
-                "Deskrpsi"
+                "Deskripsi"
             ];
     }
 }

@@ -5,11 +5,14 @@
             <li><a href="#"
                     data-toggle="sidebar"
                     class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
-            <li><a href="#"
+            {{-- <li><a href="#"
                     data-toggle="search"
-                    class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
+                    class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li> --}}
+            <li>
+                {{-- <p class="" id="tanggalwaktu"></p> --}}
+            </li>
         </ul>
-        <div class="search-element">
+        {{-- <div class="search-element">
             <input class="form-control"
                 type="search"
                 placeholder="Search"
@@ -18,7 +21,7 @@
             <button class="btn"
                 type="submit"><i class="fas fa-search"></i></button>
 
-        </div>
+        </div> --}}
     </form>
     <ul class="navbar-nav navbar-right">
         <li class="dropdown"><a href="#"
@@ -57,3 +60,5 @@
         </li>
     </ul>
 </nav>
+
+

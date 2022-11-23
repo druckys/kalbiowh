@@ -14,8 +14,15 @@
 
             <div class="section-body">
                  <h2 class="section-title">Import History</h2>
-                 <p class="section-lead">This page is just an example for you to create your own page.</p>
-         
+                 <p class="ml-3">How to import table from Excel : </p>
+                    <ul>
+                        <li> Format file (.xlsx)</li>
+                        <li> Pastikan Header Column sesuai berikut :</li>
+                        <ul>
+                            <li>ID | Nama Peralatan | Brand | Tanggal Peminjaman | Tanggal Pengembalian | Initial | Deskripsi</li>
+                        </ul>
+                     </ul>
+                     
                         <div class="card">
                             <div>
                                 <div class="card-body"> 
@@ -23,7 +30,7 @@
                                         @csrf
                                         <input type="file" name="file" class="form-control">
                                         <br>
-                                        <button class="btn btn-success px-3 mt-3 mb-3"><i class="fa-solid fa-download"> Import Data</button>
+                                        <button class="btn btn-success px-3 mt-3 mb-3"><i class="fa-solid fa-file-import"></i> Import Data</button>
                                     </form>
 
                                     <a href="/history" class="btn btn-secondary px-3 mt-3 mb-3">Cancel</a>

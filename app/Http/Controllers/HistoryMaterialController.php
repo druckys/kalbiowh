@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\LogMaterial;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\HistoryMaterialExport;
+use App\Imports\HistoryMaterialImport;
 
-class MaterialOutController extends Controller
+class HistoryMaterialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +18,7 @@ class MaterialOutController extends Controller
     public function index()
     {
         $LogMaterials = LogMaterial::all();
-        return view('materialout.index', compact('LogMaterials'));
+        return view('history_materials.index', compact('LogMaterials'));
     }
 
     /**
@@ -25,7 +28,7 @@ class MaterialOutController extends Controller
      */
     public function create()
     {
-        return view('materialout.create');
+        //
     }
 
     /**
@@ -36,9 +39,7 @@ class MaterialOutController extends Controller
      */
     public function store(Request $request)
     {
-        LogMaterial::create($request->except(['_token']));
-        return redirect('/materialout')->with('toast_success', 'Berhasil Ditambahkan!');
-    
+        //
     }
 
     /**
@@ -60,8 +61,7 @@ class MaterialOutController extends Controller
      */
     public function edit($id)
     {
-        $LogMaterials = LogMaterial::find($id);
-        return view('materialout.edit', compact(['LogMaterials']));
+        //
     }
 
     /**
@@ -73,9 +73,7 @@ class MaterialOutController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $LogMaterials = LogMaterial::find($id);
-        $LogMaterials->update($request->except(['_token']));
-        return redirect('/materialout')->with('toast_info', 'Berhasil Diupdate!');
+        //
     }
 
     /**
@@ -86,9 +84,29 @@ class MaterialOutController extends Controller
      */
     public function destroy($id)
     {
-        $LogMaterials = LogMaterial::find($id);
-        $LogMaterials->delete();
-        
-        return redirect('/materialout')->with('toast_error', 'Data Berhasil Dihapus!');
+        //
     }
+
+    // for export excel file
+    public function export()
+	{
+		return Excel::download(new HistoryMaterialExport, 'History_LogMaterial.xlsx');
+        
+	}
+
+    public function import()
+	{
+		return view('history_materials.import');
+	}
+
+    // for import excel file
+    public function uploadHistory()
+	{
+        Excel::import(new HistoryMaterialImport,request()->file('file'));
+
+		// return redirect()->route('history.import')->with('toast_info', 'Tabel berhasil diupload!');
+        // return back();
+        return redirect('/history-materials')->with('toast_success', 'Imported!');
+	}
+
 }

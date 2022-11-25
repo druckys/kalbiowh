@@ -21,8 +21,8 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body p-0">
-                            <a href="/history-import" class="btn btn-dark px-3 mt-3 mb-3"><i class="fa-solid fa-upload"></i> Import</a>
-                            <a href="{{ route('history.export') }}" class="btn btn-success px-3 mt-3 mb-3">
+                            <a href="/historytools-import" class="btn btn-dark px-3 mt-3 mb-3"><i class="fa-solid fa-upload"></i> Import</a>
+                            <a href="{{ route('historytools.export') }}" class="btn btn-success px-3 mt-3 mb-3">
                                 <i class="fa-solid fa-download"></i>
                                 Export
                             </a>
@@ -33,24 +33,26 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center">No</th>
+                                            <th>Kode Tools</th>
                                             <th>Nama Peralatan</th>
-                                            <th>Brand</th>
                                             <th>Tanggal Peminjaman</th>
                                             <th>Tanggal Pengembalian</th>
                                             <th>Initial</th>
                                             <th>Deskripsi</th>
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($LogBooks as $item )
                                         <tr>
                                             <td class="text-center">{{$loop->iteration}}</td>
+                                            <td>{{$item->tool_code}}</td>
                                             <td>{{$item->nama}}</td>
-                                            <td>{{$item->brand}}</td>
                                             <td>{{$item->borrow_date}}</td>
                                             <td>{{$item->return_date}}</td>
                                             <td>{{$item->initial_name}}</td>
                                             <td>{{$item->deskripsi}}</td>
+                                            <td>{{$item->status}}</td>
                                         </tr> 
                                     @endforeach
                                     </tbody>

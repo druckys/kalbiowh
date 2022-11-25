@@ -20,7 +20,7 @@ class HistoryToolController extends Controller
     public function index()
     {
         $LogBooks = LogBook::all();
-        return view('history.index', compact('LogBooks'));
+        return view('history_tools.index', compact('LogBooks'));
     }
 
     /**
@@ -98,7 +98,7 @@ class HistoryToolController extends Controller
 
     public function import()
 	{
-		return view('history.import');
+		return view('history_tools.import');
 	}
 
     // for import excel file
@@ -108,7 +108,7 @@ class HistoryToolController extends Controller
 
 		// return redirect()->route('history.import')->with('toast_info', 'Tabel berhasil diupload!');
         // return back();
-        return redirect('/history')->with('toast_success', 'Imported!');
+        return redirect('/history-tools')->with('toast_success', 'Imported!');
 	}
 
 }

@@ -32,11 +32,12 @@
                                     <thead>
                                         <tr>
                                             <th class="col-1 text-center ">No</th>
-                                            <th class="col-2">Nama Peralatan</th>
-                                            <th class="col-1">Brand</th>
-                                            <th class="col-1">Tanggal Pinjam</th>
+                                            <th class="col-1">Kode Tools</th>
+                                            <th class="col-1">Nama Peralatan</th>
+                                            <th class="col-2">Tanggal Pinjam</th>
                                             <th class="col-1">Initial</th>
                                             <th class="col-2">Deskripsi</th>
+                                            <th class="col-1">Status</th>
                                             <th class="col-2">Action</th>
                                         </tr>
                                     </thead>
@@ -44,14 +45,24 @@
                                         @foreach ($LogBooks as $item )
                                         <tr>
                                             <td class="text-center">{{$loop->iteration}}</td>
+                                            <td>{{$item->tool_code}}</td>
                                             <td>{{$item->nama}}</td>
-                                            <td>{{$item->brand}}</td>
                                             <td>{{$item->borrow_date}}</td>
                                             <td>{{$item->initial_name}}</td>
                                             <td>{{$item->deskripsi}}</td>
+                                            <td>{{$item->status}}</td>
                                             <td>
-                                                <a href="{{url('peminjaman/' . $item->id . '/edit' )}}" title="Edit"><button type="button" class="btn btn-icon icon-left btn-warning">
-                                                    <i class="far fa-edit"></i>Edit</button></a>
+                                                @if ($item->status == 'Returned')
+                                                    
+                                                @else
+                                                    <a href="{{url('peminjaman/' . $item->id . '/edit' )}}" title="Edit"><button type="button" class="btn btn-icon icon-left btn-warning">
+                                                     <i class="far fa-edit"></i>Edit</button></a>
+                                                    @if (auth()->user()->username == "AAA")
+                                                        <a class="btn btn-icon icon-left btn-danger delete" href="#" data-id="{{ $item->id }}" data-initial="{{ $item->initial_name }}" 
+                                                            data-nama="{{ $item->nama }}"><i class="fa fa-trash"></i> Delete</a>
+                                                    @endif
+                                                @endif
+                                                
                                                 {{-- <form method="POST" action="{{ url('peminjaman/' . $item->id)}}" accept-charset="UTF-8" style="display:inline">
                                                     {{ method_field('DELETE')}}
                                                     {{ csrf_field() }}
@@ -61,10 +72,7 @@
                                                     data-confirm="Realy?|Do you want to continue?" type="submit" title="Delete"><i class="fas fa-times"></i>Delete</button></a>
                                                     
                                                 </form> --}}
-                                                @if (auth()->user()->username == "AAA")
-                                                    <a class="btn btn-icon icon-left btn-danger delete" href="#" data-id="{{ $item->id }}" data-initial="{{ $item->initial_name }}" 
-                                                        data-nama="{{ $item->nama }}"><i class="fa fa-trash"></i> Delete</a>
-                                                @endif
+                                                
                                                 
                                             </td>
                                         </tr> 
@@ -97,7 +105,7 @@
                 confirmButtonText: 'Delete'
             }).then((result) => {
             if (result.isConfirmed) {
-                window.location = "delete/"+id+""
+                window.location = "delete/peminjaman/"+id+""
                 
                 // Swal.fire(
                 // 'Deleted!',

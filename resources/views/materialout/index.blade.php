@@ -42,7 +42,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($LogMaterial as $item )
+                                        @foreach ($LogMaterials as $item )
                                         <tr>
                                             <td class="text-center">{{$loop->iteration}}</td>
                                             <td>{{$item->nama_material}}</td>
@@ -64,8 +64,8 @@
                                                     
                                                 </form> --}}
                                                 @if (auth()->user()->username == "AAA")
-                                                    <a class="btn btn-icon icon-left btn-danger delete" href="#" data-id="{{ $item->id }}" data-initial="{{ $item->initial }}" 
-                                                        data-nama="{{ $item->nama }}"><i class="fa fa-trash"></i> Delete</a>
+                                                    <a class="btn btn-icon icon-left btn-danger delete-material" href="#" data-id="{{$item->id}}" data-date="{{ $item->tanggal }}" data-initial="{{ $item->initial }}" 
+                                                        data-nama="{{ $item->nama_material }}"><i class="fa fa-trash"></i> Delete</a>
                                                 @endif
                                                 
                                             </td>
@@ -85,13 +85,14 @@
 @push('scripts')
 
     <script>
-        $('.delete').on('click', function (){
+        $('.delete-material').on('click', function (){
             var id = $(this).attr('data-id');
+            var date = $(this).attr('data-date');
             var nama = $(this).attr('data-nama');
             var initial = $(this).attr('data-initial');
             Swal.fire({
                 title: 'Are you sure?',
-                text: "You will delete data of "+nama+" with initial "+initial+"",
+                text: "You will delete data of "+nama+" with initial name "+initial+" on "+date+"!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#d33',
@@ -99,7 +100,7 @@
                 confirmButtonText: 'Delete'
             }).then((result) => {
             if (result.isConfirmed) {
-                window.location = "delete/"+id+""
+                window.location = "delete/material/"+id+""
                 
                 // Swal.fire(
                 // 'Deleted!',

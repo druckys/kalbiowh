@@ -6,6 +6,7 @@ use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\HistoryToolController;
 use App\Http\Controllers\MaterialOutController;
 use App\Http\Controllers\PengembalianController;
+use App\Http\Controllers\HistoryMaterialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,18 +36,25 @@ Route::group(['middleware' => ['auth', 'ceklevel:AAA,ATG']], function () {
         'tool' => ToolController::class,
         'peminjaman' => PeminjamanController::class,
         'pengembalian' => PengembalianController::class,
-        'history' => HistoryToolController::class,
         'materialout' => MaterialOutController::class,
+        'history-tools' => HistoryToolController::class,
+        'history-materials' => HistoryMaterialController::class,
 
     ]);
     
     //harus pake ini agar alert/toast nya muncul
-    Route::get('delete/{id}', [PeminjamanController::class, 'destroy'])->name('destroy');
+    Route::get('delete/peminjaman/{id}', [PeminjamanController::class, 'destroy'])->name('destroy');
+    Route::get('delete/material/{id}', [MaterialOutController::class, 'destroy'])->name('destroy');
 
-    //untuk route export/import excel
-    Route::get('history-export', [HistoryToolController::class, 'export'])->name('history.export');
-    Route::get('history-import', [HistoryToolController::class, 'import'])->name('history.import');
-    Route::post('history-upload', [HistoryToolController::class, 'uploadHistory'])->name('history.upload');
+    //untuk route export/import history-tools 
+    Route::get('historytools-export', [HistoryToolController::class, 'export'])->name('historytools.export');
+    Route::get('historytools-import', [HistoryToolController::class, 'import'])->name('historytools.import');
+    Route::post('historytools-upload', [HistoryToolController::class, 'uploadHistory'])->name('historytools.upload');
+    
+    //untuk route export/import history-material
+    Route::get('historymaterials-export', [HistoryMaterialController::class, 'export'])->name('historymaterials.export');
+    Route::get('historymaterials-import', [HistoryMaterialController::class, 'import'])->name('historymaterials.import');
+    Route::post('historymaterials-upload', [HistoryMaterialController::class, 'uploadHistory'])->name('historymaterials.upload');
 
 });
 

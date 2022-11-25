@@ -23,7 +23,6 @@
                                 <div class="card-body">
                                     <form method="POST" action="/materialout" class="needs-validation" novalidate="">
                                     @csrf
-                                    @method('put')
                                     <div class="form-group">
                                         <label>Nama Material</label>
                                         <input type="text" class="form-control" name="nama_material" tabindex="1" required autofocus>
@@ -39,7 +38,7 @@
 
                                     <div class="form-group">
                                         <label>Ukuran</label>
-                                        <input type="text" class="form-control" name="ukuran" tabindex="2" required autofocus>
+                                        <input type="text" class="form-control" name="ukuran" tabindex="2">
                                         <div class="invalid-feedback" >
                                         Please fill in your size material
                                         </div>
@@ -47,7 +46,7 @@
 
                                     <div class="form-group">
                                         <label>Jumlah</label>
-                                        <input type="text" class="form-control" name="jumlah" tabindex="3" required autofocus>
+                                        <input type="number" class="form-control" name="jumlah" tabindex="3">
                                         <div class="invalid-feedback" >
                                         Please fill in your quantity
                                         </div>
@@ -56,8 +55,10 @@
                                     <div class="form-group">
                                         <label>Satuan</label>
                                         <select type="text" class="form-control selectric" name="satuan" tabindex="4" required autofocus> 
-                                            <option value="Tekiro">Tekiro</option>
-                                            <option value="Jakemy">Jakemy</option>
+                                            <option value="Pcs">Pcs</option>
+                                            <option value="Set">Set</option>
+                                            <option value="Kg">Kilogram</option>
+                                            <option value="L">Liter</option>
                                             <option value="Other..">Other..</option>
                                             <div class="invalid-feedback">
                                                 Please fill in your unit type select

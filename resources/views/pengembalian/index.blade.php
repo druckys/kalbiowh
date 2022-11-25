@@ -31,11 +31,12 @@
                                     <thead>
                                         <tr>
                                             <th class="col-1 text-center ">No</th>
-                                            <th class="col-2">Nama Peralatan</th>
-                                            <th class="col-1">Brand</th>
+                                            <th class="col-1">Kode Tools</th>
+                                            <th class="col-1">Nama Peralatan</th>
                                             <th class="col-2">Tanggal Pengembalian</th>
                                             <th class="col-1">Initial</th>
                                             <th class="col-2">Deskripsi</th>
+                                            <th class="col-1">Status</th>
                                             <th class="col-2">Action</th>
                                         </tr>
                                     </thead>
@@ -43,14 +44,34 @@
                                         @foreach ($LogBooks as $item )
                                         <tr>
                                             <td class="text-center">{{$loop->iteration}}</td>
+                                            <td>{{$item->tool_code}}</td>
                                             <td>{{$item->nama}}</td>
-                                            <td>{{$item->brand}}</td>
                                             <td>{{$item->return_date}}</td>
                                             <td>{{$item->initial_name}}</td>
                                             <td>{{$item->deskripsi}}</td>
+                                            <td>{{$item->status}}</td>
                                             <td>
-                                                <a href="{{url('pengembalian/' . $item->id . '/edit' )}}" title="Edit"><button type="button" class="btn btn-icon icon-left btn-warning">
-                                                    <i class="far fa-edit"></i>Edit</button></a>
+
+
+                                                <form method="POST" action="{{ url('pengembalian/' . $item->id)}}" class="need-validation" novalidate="">
+                                                @csrf
+                                                @method('put')
+                                                
+                                                @if ($item->status == 'Returned')
+                                                    {{-- <button class="btn btn-info" type="submit" name="deskripsi" value="verif" style="display: none">input verif</button> --}}
+                                                
+                                                    {{-- <button type="button" class="btn btn-success" buutton.style.display = 'hidden'>hide</button> --}}
+
+                                                @else
+                                                    <a href="{{url('pengembalian/' . $item->id . '/edit' )}}" title="Edit"><button type="button" class="btn btn-icon icon-left btn-warning">
+                                                        <i class="far fa-edit"></i>Edit</button></a>
+
+                                                    @if (auth()->user()->username == "AAA")
+                                                    <button class="btn btn-info" type="submit" name="status" value="Returned" >Approve</button> 
+                                                    @endif
+                                                @endif
+                                                </form>
+
                                                 <form method="POST" action="{{ url('pengembalian/' . $item->id)}}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE')}}
                                                 {{ csrf_field() }}

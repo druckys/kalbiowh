@@ -29,6 +29,7 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center">No</th>
+                                            <th>Kode Tools</th>
                                             <th>Nama Peralatan</th>
                                             <th>Brand</th>
                                             <th>Jumlah</th>
@@ -39,6 +40,7 @@
                                         @foreach ($tools as $item )
                                         <tr>
                                             <td class="text-center">{{$loop->iteration}}</td>
+                                            <td>{{$item->tool_code}}</td>
                                             <td>{{$item->nama}}</td>
                                             <td>{{$item->brand}}</td>
                                             <td>{{$item->jumlah}}</td>

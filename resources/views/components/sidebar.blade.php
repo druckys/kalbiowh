@@ -33,7 +33,11 @@
             <li class="menu-header">History</li>
             <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
                 <a class="nav-link"
-                    href="{{ url('history') }}"><i class="fa-regular fa-calendar-days"></i> <span>History</span></a>
+                    href="{{ url('history-tools') }}"><i class="fa-regular fa-calendar-days"></i> <span>History Tools</span></a>
+            </li>
+            <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
+                <a class="nav-link"
+                    href="{{ url('history-materials') }}"><i class="fa-regular fa-calendar-days"></i> <span>History Materials</span></a>
             </li>
            
         <div class="hide-sidebar-mini mt-4 mb-4 p-3">

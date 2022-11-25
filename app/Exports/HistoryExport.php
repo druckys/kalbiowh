@@ -13,7 +13,15 @@ class HistoryExport implements FromCollection, WithHeadings
     */
     public function collection()
     {
-        return LogBook::select("id", "nama", "brand", "borrow_date", "return_date", "initial_name", "deskripsi")->get();
+        return LogBook::select(
+            "id", 
+            "tool_code", 
+            "nama", 
+            "borrow_date", 
+            "return_date", 
+            "initial_name", 
+            "deskripsi",
+            "status",)->get();
     }
 
     /**
@@ -24,12 +32,13 @@ class HistoryExport implements FromCollection, WithHeadings
     public function headings(): array
     {
         return ["ID", 
+                "Kode Tools", 
                 "Nama Peralatan", 
-                "Brand", 
                 "Tanggal Peminjaman", 
                 "Tanggal Pengembalian", 
                 "Initial", 
-                "Deskripsi"
+                "Deskripsi",
+                "Status",
             ];
     }
 }

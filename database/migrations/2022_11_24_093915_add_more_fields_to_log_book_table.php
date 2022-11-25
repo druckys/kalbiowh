@@ -13,14 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tool', function (Blueprint $table) {
-            $table->id();
-            $table->string('tool_code')->nullable();
-            $table->string('nama');
-            $table->string('brand')->nullable();
-            $table->string('jumlah')->nullable();
-            $table->text('lemari')->nullable();
-            $table->timestamps();
+        Schema::table('log_book', function (Blueprint $table) {
+            $table->string('tool_code')->nullable()->after('id');
         });
     }
 
@@ -31,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tool');
+        Schema::table('log_book', function (Blueprint $table) {
+            //
+        });
     }
 };

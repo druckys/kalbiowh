@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tool;
 use App\Models\LogBook;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,8 @@ class PeminjamanController extends Controller
      */
     public function create()
     {
-        return view ('peminjaman.create');
+        $tools = Tool::all();
+        return view ('peminjaman.create', compact('tools'));
     }
 
     /**

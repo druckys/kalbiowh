@@ -30,15 +30,17 @@
                     href="{{ url('materialout') }}"><i class="fa-solid fa-file-circle-minus"></i> <span>Material Keluar</span></a>
             </li>
             
-            <li class="menu-header">History</li>
-            <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
-                <a class="nav-link"
-                    href="{{ url('history-tools') }}"><i class="fa-regular fa-calendar-days"></i> <span>History Tools</span></a>
-            </li>
-            <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
-                <a class="nav-link"
-                    href="{{ url('history-materials') }}"><i class="fa-regular fa-calendar-days"></i> <span>History Materials</span></a>
-            </li>
+            @if (auth()->user()->username == "AAA")
+                <li class="menu-header">History</li>
+                <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
+                    <a class="nav-link"
+                        href="{{ url('history-tools') }}"><i class="fa-regular fa-calendar-days"></i> <span>History Tools</span></a>
+                </li>
+                <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
+                    <a class="nav-link"
+                        href="{{ url('history-materials') }}"><i class="fa-regular fa-calendar-days"></i> <span>History Materials</span></a>
+                </li>
+            @endif
            
         <div class="hide-sidebar-mini mt-4 mb-4 p-3">
             {{-- <a href="https://www.wati.io/free-whatsapp-link-generator/"

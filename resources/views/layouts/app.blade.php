@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"
-        name="viewport">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>KGM &mdash;  @yield('title') </title>
 
     <!-- General CSS Files -->
     <link rel="stylesheet"
         href="{{ asset('library/bootstrap/dist/css/bootstrap.min.css') }}">
+
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
@@ -30,7 +30,8 @@
 
 
     @stack('style')
-
+    
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <!-- Template CSS -->
     <link rel="stylesheet"
         href="{{ asset('css/style.css') }}">
@@ -49,6 +50,7 @@
 
         gtag('config', 'UA-94034622-3');
     </script>
+
     <!-- END GA -->
 </head>
 </head>
@@ -94,6 +96,8 @@
     <!-- Page Specific JS File -->
     <script src="{{ asset('js/page/forms-advanced-forms.js') }}"></script>
     <script src="{{ asset('js/page/bootstrap-modal.js') }}"></script>
+    
+    <script src="{{ mix('js/app.js') }}" defer></script>
 </body>
 
 </html>

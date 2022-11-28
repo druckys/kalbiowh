@@ -33,7 +33,7 @@
                                         <tr>
                                             <th class="col-1 text-center ">No</th>
                                             <th class="col-1">Kode Tools</th>
-                                            <th class="col-1">Nama Peralatan</th>
+                                            <th class="col-2">Nama Peralatan</th>
                                             <th class="col-2">Tanggal Pinjam</th>
                                             <th class="col-1">Initial</th>
                                             <th class="col-2">Deskripsi</th>
@@ -133,5 +133,6 @@
     
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://code.jquery.com/jquery-migrate-3.4.0.min.js" integrity="sha256-mBCu5+bVfYzOqpYyK4jm30ZxAZRomuErKEFJFIyrwvM=" crossorigin="anonymous"></script>
+
+    {{-- <script src="https://code.jquery.com/jquery-migrate-3.4.0.min.js" integrity="sha256-mBCu5+bVfYzOqpYyK4jm30ZxAZRomuErKEFJFIyrwvM=" crossorigin="anonymous"></script> --}}
 @endpush

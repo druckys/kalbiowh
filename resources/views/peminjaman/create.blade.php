@@ -23,9 +23,26 @@
                                 <div class="card-body">
                                     <form method="POST" action="/peminjaman" class="needs-validation" novalidate="">
                                     @csrf
-                                    <div class="form-group">
+                                    
+                                        <div class="form-group">
+                                            <label>Nama Peralatan</label>
+                                            <select name="nama" class="form-control select2"> 
+                                                @foreach ($tools as $t )
+                                                    <option value="{{$t->nama}}">{{$t->nama}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        
+                                    {{-- <div class="form-group">
+                                        <label>Kode Tools</label>
+                                        <input type="text" class="form-control" name="tool_code" tabindex="1" required autofocus>
+                                        <div class="invalid-feedback">
+                                        Please fill in your tools name
+                                        </div>
+                                    </div> --}}
+                                    {{-- <div class="form-group">
                                         <label>Nama Peralatan</label>
-                                        <input type="text" class="form-control" name="nama" tabindex="1" required autofocus>
+                                        <input type="text" class="form-control" name="nama" tabindex="2" required autofocus>
                                         <div class="invalid-feedback">
                                         Please fill in your tools name
                                         </div>
@@ -34,15 +51,13 @@
                                                 {{ $message }}
                                             </div>
                                         @enderror
-                                    </div>
-                                    <div class="form-group">
+                                    </div> --}}
+                                    {{-- <div class="form-group">
                                         <label>Brand</label>
                                         <select type="text" class="form-control selectric" name="brand" tabindex="2" required autofocus> 
-                                            <option value="Tekiro">Tekiro</option>
-                                            <option value="Jakemy">Jakemy</option>
                                             <option value="Other..">Other..</option>
                                         </select>
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group">
                                         <label>Date Picker</label>
                                         <input type="text" name="borrow_date" class="form-control datepicker" tabindex="3" required autofocus>
@@ -64,6 +79,10 @@
                                         <label>Deskripsi</label>
                                         <input type="text" name="deskripsi" class="form-control" maxlength="50" tabindex="5">
                                     </div>
+
+                                    <div class="form-group">
+                                        <input type="hidden" name="status" class="form-control" value="Borrowed">
+                                    </div>
                         
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary btn-lg btn-block " tabindex="6">
@@ -84,4 +103,5 @@
 
 @push('scripts')
     
+
 @endpush

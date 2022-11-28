@@ -1,5 +1,4 @@
-import _ from 'lodash';
-window._ = _;
+window._=require('lodash')
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -7,8 +6,7 @@ window._ = _;
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-import axios from 'axios';
-window.axios = axios;
+window.axios = require('axios')
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -19,16 +17,14 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  */
 
 // import Echo from 'laravel-echo';
-
-// import Pusher from 'pusher-js';
-// window.Pusher = Pusher;
+// window.Pusher = require('pusher-js')
 
 // window.Echo = new Echo({
 //     broadcaster: 'pusher',
-//     key: import.meta.env.VITE_PUSHER_APP_KEY,
-//     wsHost: import.meta.env.VITE_PUSHER_HOST ?? `ws-${import.meta.env.VITE_PUSHER_APP_CLUSTER}.pusher.com`,
-//     wsPort: import.meta.env.VITE_PUSHER_PORT ?? 80,
-//     wssPort: import.meta.env.VITE_PUSHER_PORT ?? 443,
-//     forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
+//     key: process.meta.env.MIX_PUSHER_APP_KEY,
+//     wsHost: process.meta.env.MIX_PUSHER_HOST ?? `ws-${process.meta.env.MIX_PUSHER_APP_CLUSTER}.pusher.com`,
+//     wsPort: process.meta.env.MIX_PUSHER_PORT ?? 80,
+//     wssPort: process.meta.env.MIX_PUSHER_PORT ?? 443,
+//     forceTLS: (process.meta.env.MIX_PUSHER_SCHEME ?? 'https') === 'https',
 //     enabledTransports: ['ws', 'wss'],
 // });

@@ -15,7 +15,7 @@
             <div class="section-body">
                  <h2 class="section-title">Import Log Material</h2>
                  <p class="ml-3">How to import table from Excel : </p>
-                    <ul>
+                    <ul class="ml-4">
                         <li> Format file (.xlsx)</li>
                         <li> Pastikan Header Column sesuai berikut :</li>
                         <ul>

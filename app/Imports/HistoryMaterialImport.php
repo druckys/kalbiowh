@@ -17,7 +17,7 @@ class HistoryMaterialImport implements ToModel, WithHeadingRow
     {
         return new LogMaterial([
             //table database => table excel, no uppercase dan spasi dibaca '_' dan simbol diabaikan5
-            'id'                => $row['id'],
+            // 'id'                => $row['id'],
             'nama_material'     => $row['nama_material'],
             'ukuran'            => $row['ukuran'],
             'jumlah'            => $row['jumlahout'],

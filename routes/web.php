@@ -7,6 +7,7 @@ use App\Http\Controllers\HistoryToolController;
 use App\Http\Controllers\MaterialOutController;
 use App\Http\Controllers\PengembalianController;
 use App\Http\Controllers\HistoryMaterialController;
+use App\Http\Controllers\ListSparepartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +40,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:AAA,ATG']], function () {
         'materialout' => MaterialOutController::class,
         'history-tools' => HistoryToolController::class,
         'history-materials' => HistoryMaterialController::class,
-
+        'list-sparepart'=> ListSparepartController::class,
     ]);
     
     //harus pake ini agar alert/toast nya muncul
@@ -55,6 +56,10 @@ Route::group(['middleware' => ['auth', 'ceklevel:AAA,ATG']], function () {
     Route::get('historymaterials-export', [HistoryMaterialController::class, 'export'])->name('historymaterials.export');
     Route::get('historymaterials-import', [HistoryMaterialController::class, 'import'])->name('historymaterials.import');
     Route::post('historymaterials-upload', [HistoryMaterialController::class, 'uploadHistory'])->name('historymaterials.upload');
+
+    //untuk route export/import list-sparepart
+    Route::get('listsparepart-import', [ListSparepartController::class, 'import'])->name('listsparepart.import');
+    Route::post('listsparepart-upload', [ListSparepartController::class, 'uploadHistory'])->name('listsparepart.upload');
 
 });
 

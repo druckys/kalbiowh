@@ -12,6 +12,10 @@
                 <li class="menu-header">Dashboard</li>
                 <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
                     <a class="nav-link"
+                        href="{{ url('list-sparepart') }}"><i class="fa-solid fa-screwdriver-wrench"></i> <span>List Sparepart</span></a>
+                </li>
+                <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
+                    <a class="nav-link"
                         href="{{ url('tool') }}"><i class="fa-solid fa-screwdriver-wrench"></i> <span>List Tools</span></a>
                 </li>
             @endif

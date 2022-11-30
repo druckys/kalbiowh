@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ListTool;
 use App\Models\Tool;
 use App\Models\LogBook;
 use Illuminate\Http\Request;
@@ -27,8 +28,8 @@ class PeminjamanController extends Controller
      */
     public function create()
     {
-        $tools = Tool::all();
-        return view ('peminjaman.create', compact('tools'));
+        $list_tools = ListTool::all();
+        return view ('peminjaman.create', compact('list_tools'));
     }
 
     /**

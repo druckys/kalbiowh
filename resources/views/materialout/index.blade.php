@@ -54,20 +54,10 @@
                                             <td>
                                                 <a href="{{url('materialout/' . $item->id . '/edit' )}}" title="Edit"><button type="button" class="btn btn-icon icon-left btn-warning">
                                                     <i class="far fa-edit"></i>Edit</button></a>
-                                                {{-- <form method="POST" action="{{ url('peminjaman/' . $item->id)}}" accept-charset="UTF-8" style="display:inline">
-                                                    {{ method_field('DELETE')}}
-                                                    {{ csrf_field() }}
-                                                
-                                                    <button type="submit" class="btn btn-icon icon-left btn-danger" title="Delete" onclick="return confirm('Confirm Delete?')"><i class="fas fa-times"></i>Delete</button>
-                                                    <button class="btn btn-icon icon-left btn-danger"
-                                                    data-confirm="Realy?|Do you want to continue?" type="submit" title="Delete"><i class="fas fa-times"></i>Delete</button></a>
-                                                    
-                                                </form> --}}
                                                 @if (auth()->user()->username == "AAA")
                                                     <a class="btn btn-icon icon-left btn-danger delete-material" href="#" data-id="{{$item->id}}" data-date="{{ $item->tanggal }}" data-initial="{{ $item->initial }}" 
                                                         data-nama="{{ $item->nama_material }}"><i class="fa fa-trash"></i> Delete</a>
                                                 @endif
-                                                
                                             </td>
                                         </tr> 
                                     @endforeach
@@ -114,7 +104,9 @@
     
     <script>
         $(document).ready( function () {
-            $('#myTable').DataTable();
+            $('#myTable').DataTable({
+                "lengthMenu": [ [25, -1, 10, 50], [25, "All", 10, 50] ] 
+            });
         } );
     </script>
     {{-- table --}}

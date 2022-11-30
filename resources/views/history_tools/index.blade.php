@@ -33,7 +33,7 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center">No</th>
-                                            <th>Kode Tools</th>
+                                            {{-- <th>Kode Tools</th> --}}
                                             <th class="col-3">Nama Peralatan</th>
                                             <th>Tanggal Peminjaman</th>
                                             <th>Tanggal Pengembalian</th>
@@ -46,7 +46,7 @@
                                         @foreach ($LogBooks as $item )
                                         <tr>
                                             <td class="text-center">{{$loop->iteration}}</td>
-                                            <td>{{$item->tool_code}}</td>
+                                            {{-- <td>{{$item->tool_code}}</td> --}}
                                             <td>{{$item->nama}}</td>
                                             <td>{{$item->borrow_date}}</td>
                                             <td>{{$item->return_date}}</td>
@@ -70,7 +70,9 @@
 
     <script>
         $(document).ready( function () {
-            $('#example').DataTable();
+            $('#example').DataTable({
+                "lengthMenu": [ [-1, 10, 25, 50], ["All", 10, 25, 50] ] 
+        });
         } );
     </script>
     {{-- table --}}

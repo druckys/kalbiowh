@@ -13,17 +13,17 @@
 @section('main')<div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Master List Sparepart</h1>
+                <h1>Master List Tools</h1>
             </div>
             <div class="section-body">
                 <h5 class="pl-5"><span id="tanggalwaktu"></span></h5>
                 <h6 class="pl-5"><span id="clock12"></span></h6>
-                <h2 class="section-title">List Sparepart</h2>
+                <h2 class="section-title">List Tools</h2>
                 <p class="section-lead">This page is just an example for you to create your own page.</p>
                 <div class="col ">
                     <div class="card">
                         <div class="card-body p-0">
-                            <a href="/listsparepart-import" class="btn btn-dark px-3 mt-3 mb-3"><i class="fa-solid fa-upload"></i> Import</a>
+                            <a href="/listtool-import" class="btn btn-dark px-3 mt-3 mb-3"><i class="fa-solid fa-upload"></i> Import</a>
                             {{-- <a href="{{ route('historytools.export') }}" class="btn btn-success px-3 mt-3 mb-3">
                                 <i class="fa-solid fa-download"></i>
                                 Export
@@ -34,24 +34,20 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center">No</th>
-                                            <th>Kode Sparepart</th>
-                                            <th>Nama Sparepart</th>
-                                            <th>Brand</th>
-                                            <th>Specification</th>
-                                            <th>Equipment Number</th>
-                                            <th>Letak</th>
+                                            <th>Tools Name</th>
+                                            <th>Quantity</th>
+                                            <th>Location</th>
+                                            <th>Notes</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($listsparepart as $item )
+                                        @foreach ($list_tools as $item )
                                         <tr>
                                             <td class="text-center">{{$loop->iteration}}</td>
-                                            <td>{{$item->sparepart_code}}</td>
-                                            <td>{{$item->sparepart_name}}</td>
-                                            <td>{{$item->brand}}</td>
-                                            <td>{{$item->specification}}</td>
-                                            <td>{{$item->equipment_number}}</td>
+                                            <td>{{$item->tools_name}}</td>
+                                            <td>{{$item->quantity}}</td>
                                             <td>{{$item->location}}</td>
+                                            <td>{{$item->note}}</td>
                                         </tr>
                                         @endforeach
                                     </tbody>
@@ -111,6 +107,7 @@
         $('#myTable2').DataTable({
                 "lengthMenu": [ [-1, 10, 25, 50], ["All", 10, 25, 50] ] 
         });
+        
     } );
     </script>
     {{-- table --}}

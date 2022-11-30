@@ -31,7 +31,7 @@
                                     <thead>
                                         <tr>
                                             <th class="col-1 text-center ">No</th>
-                                            <th class="col-1">Kode Tools</th>
+                                            {{-- <th class="col-1">Kode Tools</th> --}}
                                             <th class="col-1">Nama Peralatan</th>
                                             <th class="col-2">Tanggal Pengembalian</th>
                                             <th class="col-1">Initial</th>
@@ -44,7 +44,7 @@
                                         @foreach ($LogBooks as $item )
                                         <tr>
                                             <td class="text-center">{{$loop->iteration}}</td>
-                                            <td>{{$item->tool_code}}</td>
+                                            {{-- <td>{{$item->tool_code}}</td> --}}
                                             <td>{{$item->nama}}</td>
                                             <td>{{$item->return_date}}</td>
                                             <td>{{$item->initial_name}}</td>
@@ -72,9 +72,9 @@
                                                 @endif
                                                 </form>
 
-                                                <form method="POST" action="{{ url('pengembalian/' . $item->id)}}" accept-charset="UTF-8" style="display:inline">
+                                                {{-- <form method="POST" action="{{ url('pengembalian/' . $item->id)}}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE')}}
-                                                {{ csrf_field() }}
+                                                {{ csrf_field() }} --}}
                                             
                                                 {{-- <button type="submit" class="btn btn-icon icon-left btn-danger" title="Delete" onclick="return confirm('Confirm Delete?')"><i class="fas fa-times"></i>Delete</button> --}}
                                                 {{-- <button class="btn btn-icon icon-left btn-danger"
@@ -98,7 +98,9 @@
     
     <script>
         $(document).ready( function () {
-            $('#myTable').DataTable();
+            $('#myTable').DataTable({
+                "lengthMenu": [ [25, -1, 10, 50], [25, "All", 10, 50] ] 
+            });
         } );
     </script>
     {{-- table --}}

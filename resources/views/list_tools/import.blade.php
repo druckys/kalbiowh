@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Import List Spareparts')
+@section('title', 'Import List Tools')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -9,11 +9,11 @@
 @section('main')<div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Import List Sparepart</h1>
+                <h1>Import List Tools</h1>
             </div>
 
             <div class="section-body">
-                 <h2 class="section-title">Import List Sparepart</h2>
+                 <h2 class="section-title">Import List Tools</h2>
                  <p class="ml-3">How to import table from Excel : </p>
                     <ul class="ml-4">
                         <li> Format file (.xlsx)</li>
@@ -27,14 +27,14 @@
                         <div class="card">
                             <div>
                                 <div class="card-body"> 
-                                    <form action="{{ route('listsparepart.upload') }}" method="POST" enctype="multipart/form-data" style="display:inline">
+                                    <form action="{{ route('listtool.upload') }}" method="POST" enctype="multipart/form-data" style="display:inline">
                                         @csrf
                                         <input type="file" name="file" class="form-control">
                                         <br>
                                         <button class="btn btn-success px-3 mt-3 mb-3"><i class="fa-solid fa-file-import"></i> Import Data</button>
                                     </form>
 
-                                    <a href="/lists-parepart" class="btn btn-secondary px-3 mt-3 mb-3">Cancel</a>
+                                    <a href="/list-tool" class="btn btn-secondary px-3 mt-3 mb-3">Cancel</a>
                                 </div>
                             </div>
                         </div>

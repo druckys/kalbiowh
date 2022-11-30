@@ -26,9 +26,9 @@
                                     
                                         <div class="form-group">
                                             <label>Nama Peralatan</label>
-                                            <select name="nama" class="form-control select2"> 
-                                                @foreach ($tools as $t )
-                                                    <option value="{{$t->nama}}">{{$t->nama}}</option>
+                                            <select name="nama" class="form-control"> 
+                                                @foreach ($list_tools as $t )
+                                                    <option value="{{$t->tools_name}}">{{$t->tools_name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>

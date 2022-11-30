@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ListTool;
 use Illuminate\Http\Request;
-use App\Models\ListSparepart;
-use App\Imports\ListSparepartImport;
+use App\Imports\ListToolImport;
 use Maatwebsite\Excel\Facades\Excel;
 
-class ListSparepartController extends Controller
+class ListToolController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class ListSparepartController extends Controller
      */
     public function index()
     {
-        $listsparepart = ListSparepart::all();
-        return view('list_spareparts.index', compact('listsparepart'));
+        $list_tools = ListTool::all();
+        return view('list_tools.index', compact('list_tools'));
     }
 
     /**
@@ -28,7 +28,6 @@ class ListSparepartController extends Controller
     public function create()
     {
         //
-        
     }
 
     /**
@@ -87,25 +86,18 @@ class ListSparepartController extends Controller
         //
     }
 
-    // for export excel file
-    // public function export()
-	// {
-	// 	return Excel::download(new HistoryMaterialExport, 'History_LogMaterial.xlsx');
-        
-	// }
-
     public function import()
 	{
-		return view('list_spareparts.import');
+		return view('list_tools.import');
 	}
 
     // for import excel file
     public function uploadHistory()
 	{
-        Excel::import(new ListSparepartImport,request()->file('file'));
+        Excel::import(new ListToolImport,request()->file('file'));
 
 		// return redirect()->route('history.import')->with('toast_info', 'Tabel berhasil diupload!');
         // return back();
-        return redirect('/list-sparepart')->with('toast_success', 'Imported!');
+        return redirect('/list-tool')->with('toast_success', 'Imported!');
 	}
 }

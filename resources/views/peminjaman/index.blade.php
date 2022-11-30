@@ -32,7 +32,7 @@
                                     <thead>
                                         <tr>
                                             <th class="col-1 text-center ">No</th>
-                                            <th class="col-1">Kode Tools</th>
+                                            {{-- <th class="col-1">Kode Tools</th> --}}
                                             <th class="col-2">Nama Peralatan</th>
                                             <th class="col-2">Tanggal Pinjam</th>
                                             <th class="col-1">Initial</th>
@@ -45,7 +45,7 @@
                                         @foreach ($LogBooks as $item )
                                         <tr>
                                             <td class="text-center">{{$loop->iteration}}</td>
-                                            <td>{{$item->tool_code}}</td>
+                                            {{-- <td>{{$item->tool_code}}</td> --}}
                                             <td>{{$item->nama}}</td>
                                             <td>{{$item->borrow_date}}</td>
                                             <td>{{$item->initial_name}}</td>
@@ -53,11 +53,14 @@
                                             <td>{{$item->status}}</td>
                                             <td>
                                                 @if ($item->status == 'Returned')
-                                                    
+                                                    @if (auth()->user()->username == "AAA")
+                                                        <a class="btn btn-icon icon-left btn-danger delete" href="#" data-id="{{ $item->id }}" data-initial="{{ $item->initial_name }}" 
+                                                            data-nama="{{ $item->nama }}"><i class="fa fa-trash"></i> Delete</a>
+                                                    @endif
                                                 @else
                                                     <a href="{{url('peminjaman/' . $item->id . '/edit' )}}" title="Edit"><button type="button" class="btn btn-icon icon-left btn-warning">
                                                      <i class="far fa-edit"></i>Edit</button></a>
-                                                    @if (auth()->user()->username == "AAA")
+                                                     @if (auth()->user()->username == "AAA")
                                                         <a class="btn btn-icon icon-left btn-danger delete" href="#" data-id="{{ $item->id }}" data-initial="{{ $item->initial_name }}" 
                                                             data-nama="{{ $item->nama }}"><i class="fa fa-trash"></i> Delete</a>
                                                     @endif
@@ -119,7 +122,9 @@
     
     <script>
         $(document).ready( function () {
-            $('#myTable').DataTable();
+            $('#myTable').DataTable({
+                "lengthMenu": [ [25, -1, 10, 50], [25, "All", 10, 50] ] 
+        });
         } );
     </script>
     {{-- table --}}

@@ -50,7 +50,14 @@
                                             <td>{{$item->borrow_date}}</td>
                                             <td>{{$item->initial_name}}</td>
                                             <td>{{$item->deskripsi}}</td>
-                                            <td>{{$item->status}}</td>
+                                            {{-- <td>{{$item->status}}</td> --}}
+                                            <td>
+                                                @if ($item->status == 'Returned')
+                                                    <span class="badge badge-primary">Returned</span>
+                                                 @else
+                                                    <span class="badge badge-dark">Borrowed</span>
+                                                @endif
+                                            </td>
                                             <td>
                                                 @if ($item->status == 'Returned')
                                                     @if (auth()->user()->username == "AAA")
@@ -79,7 +86,7 @@
                                                 
                                             </td>
                                         </tr> 
-                                    @endforeach
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

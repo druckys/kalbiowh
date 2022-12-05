@@ -26,7 +26,7 @@ use App\Http\Controllers\ListToolController;
 // });
 
 Route::get('/', function () {
-    return redirect('/tool');
+    return redirect('/list-sparepart');
 });
 
 Route::get('/dashboard', function () {

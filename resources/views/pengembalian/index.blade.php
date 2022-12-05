@@ -32,7 +32,7 @@
                                         <tr>
                                             <th class="col-1 text-center ">No</th>
                                             {{-- <th class="col-1">Kode Tools</th> --}}
-                                            <th class="col-1">Nama Peralatan</th>
+                                            <th class="col-3">Nama Peralatan</th>
                                             <th class="col-2">Tanggal Pengembalian</th>
                                             <th class="col-1">Initial</th>
                                             <th class="col-2">Deskripsi</th>
@@ -46,10 +46,24 @@
                                             <td class="text-center">{{$loop->iteration}}</td>
                                             {{-- <td>{{$item->tool_code}}</td> --}}
                                             <td>{{$item->nama}}</td>
-                                            <td>{{$item->return_date}}</td>
+                                            {{-- <td>{{$item->return_date}}</td> --}}
+                                            <td>
+                                                @if ($item->return_date == null)
+                                                    <span class="badge badge-danger">warning</span>
+                                                @else
+                                                    {{$item->return_date}}
+                                                @endif    
+                                            </td>
                                             <td>{{$item->initial_name}}</td>
                                             <td>{{$item->deskripsi}}</td>
-                                            <td>{{$item->status}}</td>
+                                            {{-- <td>{{$item->status}}</td> --}}
+                                            <td>
+                                                @if ($item->status == 'Returned')
+                                                    <span class="badge badge-primary">Returned</span>
+                                                @else
+                                                    <span class="badge badge-dark">Borrowed</span>
+                                                @endif
+                                            </td>
                                             <td>
 
 
@@ -57,19 +71,26 @@
                                                 @csrf
                                                 @method('put')
                                                 
-                                                @if ($item->status == 'Returned')
-                                                    {{-- <button class="btn btn-info" type="submit" name="deskripsi" value="verif" style="display: none">input verif</button> --}}
+                                                @if ($item->status == 'Returned') 
                                                 
-                                                    {{-- <button type="button" class="btn btn-success" buutton.style.display = 'hidden'>hide</button> --}}
-
                                                 @else
-                                                    <a href="{{url('pengembalian/' . $item->id . '/edit' )}}" title="Edit"><button type="button" class="btn btn-icon icon-left btn-warning">
-                                                        <i class="far fa-edit"></i>Edit</button></a>
 
                                                     @if (auth()->user()->username == "AAA")
-                                                    <button class="btn btn-info" type="submit" name="status" value="Returned" >Approve</button> 
+                                                        <button class="btn btn-icon icon-left btn-primary" type="submit" name="status" value="Returned" >
+                                                            <i class="fas fa-check"></i>Approve</button>
                                                     @endif
+
+                                                    @if ($item->return_date == null)
+                                                        <a href="{{url('pengembalian/' . $item->id . '/edit' )}}" title="Edit"><button type="button" class="btn btn-icon icon-left btn-warning">
+                                                        <i class="far fa-edit"></i>Edit</button></a>
+                                                    @endif
+
                                                 @endif
+
+                                                {{-- @if (auth()->user()->username == "AAA")
+                                                        <a class="btn btn-icon icon-left btn-danger delete" href="#" data-id="{{ $item->id }}" data-initial="{{ $item->initial_name }}" 
+                                                        data-nama="{{ $item->nama }}"><i class="fa fa-trash"></i> Delete</a>
+                                                @endif   --}}
                                                 </form>
 
                                                 {{-- <form method="POST" action="{{ url('pengembalian/' . $item->id)}}" accept-charset="UTF-8" style="display:inline">

@@ -37,17 +37,16 @@
                                         @enderror
                                     </div>
 
-                                    <div class="form-group">
-                                        <label>Brand</label>
-                                        <select type="text" class="form-control selectric" name="brand" value="{{$LogBooks->brand}}" tabindex="2" required autofocus> 
-                                            <option value="Tekiro" @if($LogBooks->brand == "Tekiro") selected @endif>Tekiro</option>
-                                            <option value="Jakemy" @if($LogBooks->brand == "Jakemy") selected @endif>Jakemy</option>
-                                            <option value="Other.." @if($LogBooks->brand == "Other..") selected @endif>Other..</option>
-                                            <div class="invalid-feedback">
-                                                Please fill in your brand select
-                                            </div>
+                                    {{-- masih ada bug disini  --}}
+
+                                    {{-- <div class="form-group">
+                                        <label>Nama Peralatan</label>
+                                        <select name="nama" class="form-control"> 
+                                            @foreach ($list_tools as $t )
+                                            <option value="{{$t->tools_name}}">{{$t->tools_name}}</option>
+                                        @endforeach
                                         </select>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="form-group">
                                         <label>Tanggal Peminjaman</label>

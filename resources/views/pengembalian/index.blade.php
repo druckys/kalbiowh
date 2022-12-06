@@ -25,7 +25,7 @@
                                 Add List
                             </a> --}}
 
-                            <div class="table-responsive">
+                            <div class="table-responsive mt-3">
                                 <table class="table-striped table"
                                     id="myTable">
                                     <thead>
@@ -71,7 +71,7 @@
                                                 @csrf
                                                 @method('put')
                                                 
-                                                @if ($item->status == 'Returned') 
+                                                {{-- @if ($item->status == 'Returned') 
                                                 
                                                 @else
 
@@ -85,6 +85,18 @@
                                                         <i class="far fa-edit"></i>Edit</button></a>
                                                     @endif
 
+                                                @endif --}}
+
+                                                @if ($item->return_date == null)
+                                                    <a href="{{url('pengembalian/' . $item->id . '/edit' )}}" title="Edit"><button type="button" class="btn btn-icon icon-left btn-warning">
+                                                        <i class="far fa-edit"></i>Edit</button></a>
+    
+                                                @else
+                                                    @if (auth()->user()->username == "AAA" && $item->status == 'Borrowed')
+                                                    <button class="btn btn-icon icon-left btn-primary" type="submit" name="status" value="Returned" >
+                                                        <i class="fas fa-check"></i>Approve</button>
+                                                    @endif
+                                                    
                                                 @endif
 
                                                 {{-- @if (auth()->user()->username == "AAA")

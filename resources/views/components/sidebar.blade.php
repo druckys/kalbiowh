@@ -47,6 +47,9 @@
                 <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
                     <a class="nav-link"
                         href="{{ url('history-materials') }}"><i class="fa-regular fa-calendar-days"></i> <span>History Materials</span></a>
+                    
+                    <a class="nav-link" href="{{ url('list-user') }}"><i class="fa-solid fa-users"></i> <span>User List</span></a>
+                       
                 </li>
             @endif
            

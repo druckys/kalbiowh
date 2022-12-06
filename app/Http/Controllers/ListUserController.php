@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ListTool;
-use App\Models\Tool;
-use App\Models\LogBook;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class PeminjamanController extends Controller
+class ListUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +14,9 @@ class PeminjamanController extends Controller
      */
     public function index()
     {
-        $LogBooks = LogBook::all();
-        return view('peminjaman.index', compact('LogBooks'));
+        $list_user = User::all();
+        return view('users.index', compact(['list_user']));
     }
-    
 
     /**
      * Show the form for creating a new resource.
@@ -28,8 +25,7 @@ class PeminjamanController extends Controller
      */
     public function create()
     {
-        $list_tools = ListTool::all();
-        return view ('peminjaman.create', compact('list_tools'));
+        //
     }
 
     /**
@@ -40,13 +36,7 @@ class PeminjamanController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-    		'nama' => ['required', 'unique:Allowances'],
-            'value' => 'required'
-    	]);
-
-        LogBook::create($request->except(['_token']));
-        return redirect('/peminjaman')->with('toast_success', 'Berhasil Ditambahkan!');
+        //
     }
 
     /**
@@ -68,9 +58,7 @@ class PeminjamanController extends Controller
      */
     public function edit($id)
     {
-        $LogBooks = LogBook::find($id);
-        $list_tools = ListTool::all();
-        return view('peminjaman.edit', compact(['LogBooks', 'list_tools']));
+        //
     }
 
     /**
@@ -80,11 +68,9 @@ class PeminjamanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update( Request $request, $id)
+    public function update(Request $request, $id)
     {
-        $LogBooks = LogBook::find($id);
-        $LogBooks->update($request->except(['_token']));
-        return redirect('/peminjaman')->with('toast_info', 'Berhasil Diupdate!');
+        //
     }
 
     /**
@@ -95,9 +81,6 @@ class PeminjamanController extends Controller
      */
     public function destroy($id)
     {
-        $LogBooks = LogBook::find($id);
-        $LogBooks->delete();
-        
-        return redirect('/peminjaman')->with('toast_error', 'Data Berhasil Dihapus!');
+        //
     }
 }

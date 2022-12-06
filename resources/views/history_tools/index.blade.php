@@ -49,7 +49,14 @@
                                             {{-- <td>{{$item->tool_code}}</td> --}}
                                             <td>{{$item->nama}}</td>
                                             <td>{{$item->borrow_date}}</td>
-                                            <td>{{$item->return_date}}</td>
+                                            {{-- <td>{{$item->return_date}}</td> --}}
+                                            <td>
+                                                @if ($item->return_date == null)
+                                                    <span class="badge badge-danger">warning</span>
+                                                @else
+                                                    {{$item->return_date}}
+                                                @endif    
+                                            </td>
                                             <td>{{$item->initial_name}}</td>
                                             <td>{{$item->deskripsi}}</td>
                                             {{-- <td>{{$item->status}}</td> --}}

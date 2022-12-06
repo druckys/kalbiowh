@@ -48,7 +48,10 @@
                                             <td>{{$item->nama_material}}</td>
                                             <td>{{$item->ukuran}}</td>
                                             <td>{{$item->jumlah}}</td>
-                                            <td>{{$item->satuan}}</td>
+                                            {{-- <td>{{$item->satuan}}</td> --}}
+                                            <td>
+                                                <span class="badge badge-dark">{{$item->satuan}}</span>
+                                            </td>
                                             <td>{{$item->tanggal}}</td>
                                             <td>{{$item->initial}}</td>
                                             <td>

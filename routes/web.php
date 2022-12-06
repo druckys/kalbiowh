@@ -2,13 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ToolController;
+use App\Http\Controllers\ListToolController;
+use App\Http\Controllers\ListUserController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\HistoryToolController;
 use App\Http\Controllers\MaterialOutController;
 use App\Http\Controllers\PengembalianController;
-use App\Http\Controllers\HistoryMaterialController;
 use App\Http\Controllers\ListSparepartController;
-use App\Http\Controllers\ListToolController;
+use App\Http\Controllers\HistoryMaterialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,7 @@ use App\Http\Controllers\ListToolController;
 // });
 
 Route::get('/', function () {
-    return redirect('/list-sparepart');
+    return redirect('/peminjaman');
 });
 
 Route::get('/dashboard', function () {
@@ -43,6 +44,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:AAA,ATG']], function () {
         'history-materials' => HistoryMaterialController::class,
         'list-sparepart'=> ListSparepartController::class,
         'list-tool'=> ListToolController::class,
+        'list-user'=> ListUserController::class,
     ]);
     
     //harus pake ini agar alert/toast nya muncul

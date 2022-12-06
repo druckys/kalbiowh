@@ -29,14 +29,6 @@
                                         <input type="text" class="form-control" name="nama" value="{{$LogBooks->nama}}" tabindex="1" disabled required autofocus>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label>Brand</label>
-                                        <select type="text" class="form-control selectric" name="brand" value="{{$LogBooks->brand}}" tabindex="2" disabled required autofocus> 
-                                            <option value="Tekiro" @if($LogBooks->brand == "Tekiro") selected @endif>Tekiro</option>
-                                            <option value="Jakemy" @if($LogBooks->brand == "Jakemy") selected @endif>Jakemy</option>
-                                            <option value="Other.." @if($LogBooks->brand == "Other..") selected @endif>Other..</option>
-                                        </select>
-                                    </div>
 
                                     <div class="form-group">
                                         <label>Tanggal Pengembalian</label>

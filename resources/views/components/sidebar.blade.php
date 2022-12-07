@@ -38,18 +38,22 @@
                     href="{{ url('materialout') }}"><i class="fa-solid fa-file-circle-minus"></i> <span>Material Keluar</span></a>
             </li>
             
-            @if (auth()->user()->username == "AAA")
+            
                 <li class="menu-header">History</li>
                 <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
                     <a class="nav-link"
                         href="{{ url('history-tools') }}"><i class="fa-regular fa-calendar-days"></i> <span>History Tools</span></a>
-                </li>
-                <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
+
                     <a class="nav-link"
                         href="{{ url('history-materials') }}"><i class="fa-regular fa-calendar-days"></i> <span>History Materials</span></a>
-                    
+               
+                </li>
+            @if (auth()->user()->username == "AAA")
+                <li class="menu-header">User Info</li>
+                <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ url('list-user') }}"><i class="fa-solid fa-users"></i> <span>User List</span></a>
-                       
+                    
+                    <a class="nav-link" href="{{ url('user-log') }}"><i class="fa-solid fa-bug"></i> <span>Log Activity</span></a>
                 </li>
             @endif
            

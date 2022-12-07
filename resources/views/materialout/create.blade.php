@@ -79,6 +79,10 @@
                                             Please fill in your initial name
                                         </div>
                                     </div>
+
+                                    <div class="form-group">
+                                        <input type="hidden" name="status" class="form-control" value="Pending">
+                                    </div>
                         
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary btn-lg btn-block " tabindex="6">

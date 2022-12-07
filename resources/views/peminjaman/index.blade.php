@@ -130,7 +130,8 @@
     <script>
         $(document).ready( function () {
             $('#myTable').DataTable({
-                "lengthMenu": [ [25, -1, 10, 50], [25, "All", 10, 50] ] 
+                "lengthMenu": [ [25, -1, 10, 50], [25, "All", 10, 50] ] ,
+                "order" : [ 0, 'desc' ]
         });
         } );
     </script>

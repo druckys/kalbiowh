@@ -65,27 +65,9 @@
                                                 @endif
                                             </td>
                                             <td>
-
-
                                                 <form method="POST" action="{{ url('pengembalian/' . $item->id)}}" class="need-validation" novalidate="">
                                                 @csrf
                                                 @method('put')
-                                                
-                                                {{-- @if ($item->status == 'Returned') 
-                                                
-                                                @else
-
-                                                    @if (auth()->user()->username == "AAA")
-                                                        <button class="btn btn-icon icon-left btn-primary" type="submit" name="status" value="Returned" >
-                                                            <i class="fas fa-check"></i>Approve</button>
-                                                    @endif
-
-                                                    @if ($item->return_date == null)
-                                                        <a href="{{url('pengembalian/' . $item->id . '/edit' )}}" title="Edit"><button type="button" class="btn btn-icon icon-left btn-warning">
-                                                        <i class="far fa-edit"></i>Edit</button></a>
-                                                    @endif
-
-                                                @endif --}}
 
                                                 @if ($item->return_date == null)
                                                     <a href="{{url('pengembalian/' . $item->id . '/edit' )}}" title="Edit"><button type="button" class="btn btn-icon icon-left btn-warning">
@@ -98,21 +80,7 @@
                                                     @endif
                                                     
                                                 @endif
-
-                                                {{-- @if (auth()->user()->username == "AAA")
-                                                        <a class="btn btn-icon icon-left btn-danger delete" href="#" data-id="{{ $item->id }}" data-initial="{{ $item->initial_name }}" 
-                                                        data-nama="{{ $item->nama }}"><i class="fa fa-trash"></i> Delete</a>
-                                                @endif   --}}
                                                 </form>
-
-                                                {{-- <form method="POST" action="{{ url('pengembalian/' . $item->id)}}" accept-charset="UTF-8" style="display:inline">
-                                                {{ method_field('DELETE')}}
-                                                {{ csrf_field() }} --}}
-                                            
-                                                {{-- <button type="submit" class="btn btn-icon icon-left btn-danger" title="Delete" onclick="return confirm('Confirm Delete?')"><i class="fas fa-times"></i>Delete</button> --}}
-                                                {{-- <button class="btn btn-icon icon-left btn-danger"
-                                                data-confirm="Realy?|Do you want to continue?" type="submit" title="Delete"><i class="fas fa-times"></i>Delete</button></a> --}}
-                                            </form>
                                             </td>
                                         </tr> 
                                     @endforeach
@@ -132,7 +100,8 @@
     <script>
         $(document).ready( function () {
             $('#myTable').DataTable({
-                "lengthMenu": [ [25, -1, 10, 50], [25, "All", 10, 50] ] 
+                "lengthMenu": [ [25, -1, 10, 50], [25, "All", 10, 50] ] ,
+                "order" : [ 0, 'desc' ]
             });
         } );
     </script>

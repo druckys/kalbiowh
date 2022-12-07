@@ -21,11 +21,13 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body p-0">
-                            <a href="/historytools-import" class="btn btn-dark px-3 mt-3 mb-3"><i class="fa-solid fa-upload"></i> Import</a>
-                            <a href="{{ route('historytools.export') }}" class="btn btn-success px-3 mt-3 mb-3">
-                                <i class="fa-solid fa-download"></i>
-                                Export
-                            </a>
+                            @if (auth()->user()->username == "AAA")
+                                <a href="/historytools-import" class="btn btn-dark px-3 mt-3 mb-3"><i class="fa-solid fa-upload"></i> Import</a>
+                                <a href="{{ route('historytools.export') }}" class="btn btn-success px-3 mt-3 mb-3">
+                                    <i class="fa-solid fa-download"></i>
+                                    Export
+                                </a>    
+                            @endif
 
                             <div class="table-responsive">
                                 <table class="table-striped table"
@@ -85,7 +87,8 @@
     <script>
         $(document).ready( function () {
             $('#example').DataTable({
-                "lengthMenu": [ [-1, 10, 25, 50], ["All", 10, 25, 50] ] 
+                "lengthMenu": [ [-1, 10, 25, 50], ["All", 10, 25, 50] ] ,
+                "order" : [ 0, 'desc' ]
         });
         } );
     </script>

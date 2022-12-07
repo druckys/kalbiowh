@@ -39,7 +39,7 @@
 
                                     <div class="form-group">
                                         <label>Ukuran</label>
-                                        <input type="text" class="form-control" name="ukuran" value="{{$LogMaterials->ukuran}}" tabindex="1" required autofocus>
+                                        <input type="text" class="form-control" name="ukuran" value="{{$LogMaterials->ukuran}}" tabindex="1" autofocus>
                                         <div class="invalid-feedback" >
                                         Please fill in your size material
                                         </div>
@@ -47,7 +47,7 @@
 
                                     <div class="form-group">
                                         <label>Jumlah</label>
-                                        <input type="text" class="form-control" name="jumlah" value="{{$LogMaterials->jumlah}}" tabindex="1" required autofocus>
+                                        <input type="text" class="form-control" name="jumlah" value="{{$LogMaterials->jumlah}}" tabindex="1" autofocus>
                                         <div class="invalid-feedback" >
                                         Please fill in your quantity
                                         </div>

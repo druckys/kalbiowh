@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Spatie\Activitylog\Models\Activity;
 use App\Http\Controllers\ToolController;
+use App\Http\Controllers\LogUserController;
 use App\Http\Controllers\ListToolController;
 use App\Http\Controllers\ListUserController;
 use App\Http\Controllers\PeminjamanController;
@@ -45,6 +47,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:AAA,ATG']], function () {
         'list-sparepart'=> ListSparepartController::class,
         'list-tool'=> ListToolController::class,
         'list-user'=> ListUserController::class,
+        'user-log'=> LogUserController::class,
     ]);
     
     //harus pake ini agar alert/toast nya muncul

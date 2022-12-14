@@ -51,7 +51,7 @@
             @if (auth()->user()->username == "AAA")
                 <li class="menu-header">User Info</li>
                 <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ url('list-user') }}"><i class="fa-solid fa-users"></i> <span>User List</span></a>
+                    <a class="nav-link" href="{{ url('list-user') }}"><i class="fa-solid fa-user"></i> <span>User List</span></a>
                     
                     <a class="nav-link" href="{{ url('user-log') }}"><i class="fa-solid fa-bug"></i> <span>Log Activity</span></a>
                 </li>

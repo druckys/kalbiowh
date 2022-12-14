@@ -16,7 +16,7 @@
                     <div class="row">
                         <div class="col-12 col-sm-8 offset-sm-2 col-md-10 offset-md-3 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3">
                             <a href="/materialout" class="btn btn-danger mb-5 pl-4 pr-4">Cancel</a>
-                            <div class="card card-primary">
+                            <div class="card card-dark">
                               <div class="card-header">
                                 <h4>Tambah Data</h4></div>
                     
@@ -85,7 +85,7 @@
                                     </div>
                         
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block " tabindex="6">
+                                        <button type="submit" class="btn btn-success btn-lg btn-block " tabindex="6">
                                         Save
                                         </button>
                                     </div>

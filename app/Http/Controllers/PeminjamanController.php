@@ -40,6 +40,11 @@ class PeminjamanController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+    		'nama' => 'required|max:255',
+    		'borrow_date' => 'required',
+    		'initial_name' => 'required|max:3|min:3|string|regex:/^([A-Z]+)$/',
+    	]);
         
         LogBook::create($request->except(['_token']));
         return redirect('/peminjaman')->with('toast_success', 'Berhasil Ditambahkan!');

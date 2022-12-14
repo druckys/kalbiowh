@@ -19,7 +19,7 @@
                         <li> Format file (.xlsx)</li>
                         <li> Pastikan Header Column sesuai berikut :</li>
                         <ul>
-                            <li>ID | Nama Material | Ukuran | Jumlah(out) | Satuan | Tanggal | Initial </li>
+                            <li>ID | Nama Material | Ukuran | Jumlah(out) | Satuan | Tanggal | Initial | Status </li>
                         </ul>
                         <li> Untuk column Tanggal/Date menggunakan format <b>text</b>, example : "2022-11-23" . </li>
                      </ul>

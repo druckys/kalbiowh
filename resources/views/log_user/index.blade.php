@@ -51,7 +51,7 @@
                                             <td>
                                                 
                                                 @if ($item->event == 'created')
-                                                    <span class="badge badge-success">{{$item->event}}</span>
+                                                    <span class="badge badge-primary">{{$item->event}}</span>
                                                 @elseif ($item->event == 'updated')
                                                     <span class="badge badge-warning">{{$item->event}}</span>
                                                 @else

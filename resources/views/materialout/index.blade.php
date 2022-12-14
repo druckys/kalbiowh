@@ -21,7 +21,7 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body p-0">
-                            <a href="/materialout/create" class="btn btn-primary btn-lg mt-3 mb-3" tabindex="4">
+                            <a href="/materialout/create" class="btn btn-dark btn-lg mt-3 mb-3" tabindex="4">
                                 <i class="fa-solid fa-user-plus"></i>
                                Add List
                             </a>
@@ -78,15 +78,15 @@
                                                     @if ($item->status == 'Pending')
                                                         <a href="{{url('materialout/' . $item->id . '/edit' )}}" title="Edit"><button type="button" class="btn btn-icon icon-left btn-warning">
                                                             <i class="far fa-edit"></i>Edit</button></a>
-                                                        <button class="btn btn-icon icon-left btn-primary" type="submit" name="status" value="Approved" >
+                                                        @if (auth()->user()->username == "AAA")
+                                                            <button class="btn btn-icon icon-left btn-primary" type="submit" name="status" value="Approved" >
                                                             <i class="fas fa-check"></i>Approve</button>
-        
+                                                        @endif
                                                     @else
                                                         @if (auth()->user()->username == "AAA")
                                                             <a class="btn btn-icon icon-left btn-danger delete-material" href="#" data-id="{{$item->id}}" data-date="{{ $item->tanggal }}" data-initial="{{ $item->initial }}" 
                                                                 data-nama="{{ $item->nama_material }}"><i class="fa fa-trash"></i> Delete</a>
                                                         @endif
-                                                        
                                                     @endif
                                                     </form>
                                             </td>

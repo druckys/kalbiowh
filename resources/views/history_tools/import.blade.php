@@ -19,7 +19,7 @@
                         <li> Format file (.xlsx)</li>
                         <li> Pastikan Header Column sesuai berikut :</li>
                         <ul>
-                            <li>ID | Nama Peralatan | Brand | Tanggal Peminjaman | Tanggal Pengembalian | Initial | Deskripsi | Status</li>
+                            <li>ID | Nama Peralatan | Tanggal Peminjaman | Tanggal Pengembalian | Initial | Deskripsi | Status</li>
                         </ul>
                         <li> Untuk column Tanggal/Date menggunakan format <b>text</b>, example : "2022-11-23" . </li>
                      </ul>

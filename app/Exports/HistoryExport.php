@@ -14,8 +14,7 @@ class HistoryExport implements FromCollection, WithHeadings
     public function collection()
     {
         return LogBook::select(
-            "id", 
-            "tool_code", 
+            "id",  
             "nama", 
             "borrow_date", 
             "return_date", 
@@ -32,7 +31,6 @@ class HistoryExport implements FromCollection, WithHeadings
     public function headings(): array
     {
         return ["ID", 
-                "Kode Tools", 
                 "Nama Peralatan", 
                 "Tanggal Peminjaman", 
                 "Tanggal Pengembalian", 

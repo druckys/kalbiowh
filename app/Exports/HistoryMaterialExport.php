@@ -20,7 +20,9 @@ class HistoryMaterialExport implements FromCollection, WithHeadings
             "jumlah",
             "satuan",
             "tanggal",
-            "initial")->get();
+            "initial",
+            "status"
+            )->get();
     }
 
     /**

@@ -24,6 +24,7 @@ class HistoryMaterialImport implements ToModel, WithHeadingRow
             'satuan'            => $row['satuan'],
             'tanggal'           => $row['tanggal_pengambilan'],
             'initial'           => $row['initial'],
+            'status'           => $row['status'],
         ]);
     }
 }

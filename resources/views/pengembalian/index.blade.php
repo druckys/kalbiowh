@@ -75,10 +75,9 @@
     
                                                 @else
                                                     @if (auth()->user()->username == "AAA" && $item->status == 'Borrowed')
-                                                    <button class="btn btn-icon icon-left btn-primary" type="submit" name="status" value="Returned" >
+                                                        <button class="btn btn-icon icon-left btn-primary" type="submit" name="status" value="Returned">
                                                         <i class="fas fa-check"></i>Approve</button>
                                                     @endif
-                                                    
                                                 @endif
                                                 </form>
                                             </td>

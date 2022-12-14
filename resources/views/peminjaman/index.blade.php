@@ -21,7 +21,7 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body p-0">
-                            <a href="/peminjaman/create" class="btn btn-primary btn-lg mt-3 mb-3" tabindex="4">
+                            <a href="/peminjaman/create" class="btn btn-dark btn-lg mt-3 mb-3" tabindex="4">
                                 <i class="fa-solid fa-user-plus"></i>
                                Add List
                             </a>

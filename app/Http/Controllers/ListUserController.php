@@ -14,8 +14,12 @@ class ListUserController extends Controller
      */
     public function index()
     {
-        $list_user = User::all();
-        return view('users.index', compact(['list_user']));
+        $list_user = User::select("*")
+                            ->whereNotNull('last_seen')
+                            ->orderBy('last_seen', 'DESC')
+                            ->paginate(10);   
+        // $list_user = User::all();
+        return view('users.index', compact('list_user'));
     }
 
     /**

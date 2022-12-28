@@ -34,7 +34,7 @@
                                         <button class="btn btn-success px-3 mt-3 mb-3"><i class="fa-solid fa-file-import"></i> Import Data</button>
                                     </form>
 
-                                    <a href="/lists-parepart" class="btn btn-secondary px-3 mt-3 mb-3">Cancel</a>
+                                    <a href="/list-sparepart" class="btn btn-secondary px-3 mt-3 mb-3">Cancel</a>
                                 </div>
                             </div>
                         </div>

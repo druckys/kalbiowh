@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Spatie\Activitylog\Models\Activity;
-use App\Http\Controllers\ToolController;
 use App\Http\Controllers\LogUserController;
 use App\Http\Controllers\ListToolController;
 use App\Http\Controllers\ListUserController;
@@ -24,21 +22,17 @@ use App\Http\Controllers\HistoryMaterialController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', function () {
     return redirect('/peminjaman');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::group(['middleware' => ['auth', 'ceklevel:AAA,ATG']], function () {
+
+Route::group(['middleware' => ['auth', 'ceklevel:AAA']], function () {
     Route::resources([
-        'tool' => ToolController::class,
         'peminjaman' => PeminjamanController::class,
         'pengembalian' => PengembalianController::class,
         'materialout' => MaterialOutController::class,

@@ -27,6 +27,7 @@
                                         <div class="form-group">
                                             <label>Nama Peralatan</label>
                                             <select name="nama" class="form-control"> 
+                                                {{-- memangggil database di list tools --}}
                                                 @foreach ($list_tools as $t )
                                                     <option value="{{$t->tools_name}}">{{$t->tools_name}}</option>
                                                 @endforeach
@@ -34,7 +35,7 @@
                                         </div>
                                         
                                     <div class="form-group">
-                                        <label>Date Picker</label>
+                                        <label>Tanggal Peminjaman</label>
                                         <input type="text" name="borrow_date" class="form-control datepicker" tabindex="3" required autofocus>
                                     </div>
                                     <div class="form-group">

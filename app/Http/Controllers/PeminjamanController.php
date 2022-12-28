@@ -14,18 +14,21 @@ class PeminjamanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     // untuk menampilkan pada halaman peminjaman index, dan membutuhkan model LogBook
     public function index()
     {
         $LogBooks = LogBook::all();
         return view('peminjaman.index', compact('LogBooks'));
     }
-    
+
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+    // untuk menampilkan pada halaman peminjaman create/ add list, dan membutuhkan model ListTool
     public function create()
     {
         $list_tools = ListTool::all();
@@ -40,6 +43,9 @@ class PeminjamanController extends Controller
      */
     public function store(Request $request)
     {
+        //laravel validasi
+        // gunanya untuk memasukan data kedalam database dan melakukan validasi sesuai requirement,
+        //dan ketika sudah mengisi akan redirect ke halaman peminjaman/index
         $this->validate($request,[
     		'nama' => 'required|max:255',
     		'borrow_date' => 'required',
@@ -67,6 +73,8 @@ class PeminjamanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     //untuk edit data berdasarkan id, pada halaman edit
     public function edit($id)
     {
         $LogBooks = LogBook::find($id);
@@ -81,8 +89,11 @@ class PeminjamanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     
     public function update( Request $request, $id)
     {
+        //update berdasarkan id
         $LogBooks = LogBook::find($id);
         $LogBooks->update($request->except(['_token']));
         return redirect('/peminjaman')->with('toast_info', 'Berhasil Diupdate!');
@@ -94,6 +105,8 @@ class PeminjamanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
     public function destroy($id)
     {
         $LogBooks = LogBook::find($id);

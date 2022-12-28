@@ -21,11 +21,14 @@ class LogBook extends Model
         // return LogOptions::defaults()->logUnguarded();
         // Chain fluent methods for configuration options
     }
+
+    //ini untuk memanggil database 
     
     protected $table = 'log_book';
     //protected $fillable = ['nama','borrow_date', 'return_date', 'initial_name', 'deskripsi'];
     protected $guarded = [];
 
+    // relationship database
     public function Tool(){
         return $this->belongsTo('App\Models\Tool');
         // return $this->belongsToMany(Tool::class, 'tool');

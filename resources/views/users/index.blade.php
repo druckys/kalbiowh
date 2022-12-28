@@ -37,7 +37,8 @@
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Username</th>
-                                            <th>Created_at</th>
+                                            <th>Last Seen</th>
+                                            <th>Status</th>
 
                                         </tr>
                                     </thead>
@@ -51,7 +52,16 @@
                                             <td>
                                                 <span class="badge badge-dark">{{$item->username}}</span>
                                             </td>
-                                            <td>{{$item->created_at}}</td>
+                                            <td>
+                                                {{ Carbon\Carbon::parse($item->last_seen)->diffForHumans() }}
+                                            </td>
+                                            <td>
+                                                @if(Cache::has('user-is-online-' . $item->id))
+                                                    <span class="badge badge-light text-success"><i class="fa-solid fa-signal"></i> Online</span>
+                                                @else
+                                                    <span class="badge badge-light text-secondary"><i class="fa-solid fa-signal"></i> Offline</span>
+                                                @endif
+                                            </td>
 
                                         </tr>
                                         @endforeach

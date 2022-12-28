@@ -25,7 +25,8 @@
                                 <i class="fa-solid fa-user-plus"></i>
                                Add List
                             </a>
-
+                            
+                            {{-- tabel --}}
                             <div class="table-responsive">
                                 <table class="table-striped table"
                                     id="myTable">
@@ -41,6 +42,7 @@
                                             <th class="col-2">Action</th>
                                         </tr>
                                     </thead>
+                                    {{-- untuk memanggil database kedalam table --}}
                                     <tbody>
                                         @foreach ($LogBooks as $item )
                                         <tr>
@@ -59,6 +61,7 @@
                                                 @endif
                                             </td>
                                             <td>
+                                                {{-- kondisi jika menggunakan akun/ username AAA --}}
                                                 @if ($item->status == 'Returned')
                                                     @if (auth()->user()->username == "AAA")
                                                         <a class="btn btn-icon icon-left btn-danger delete" href="#" data-id="{{ $item->id }}" data-initial="{{ $item->initial_name }}" 
@@ -72,18 +75,6 @@
                                                             data-nama="{{ $item->nama }}"><i class="fa fa-trash"></i> Delete</a>
                                                     @endif
                                                 @endif
-                                                
-                                                {{-- <form method="POST" action="{{ url('peminjaman/' . $item->id)}}" accept-charset="UTF-8" style="display:inline">
-                                                    {{ method_field('DELETE')}}
-                                                    {{ csrf_field() }}
-                                                
-                                                    <button type="submit" class="btn btn-icon icon-left btn-danger" title="Delete" onclick="return confirm('Confirm Delete?')"><i class="fas fa-times"></i>Delete</button>
-                                                    <button class="btn btn-icon icon-left btn-danger"
-                                                    data-confirm="Realy?|Do you want to continue?" type="submit" title="Delete"><i class="fas fa-times"></i>Delete</button></a>
-                                                    
-                                                </form> --}}
-                                                
-                                                
                                             </td>
                                         </tr> 
                                         @endforeach
@@ -100,6 +91,7 @@
 
 @push('scripts')
 
+    {{-- alert menggungakan sweetalert2 untuk confirmation delete data --}}
     <script>
         $('.delete').on('click', function (){
             var id = $(this).attr('data-id');
@@ -126,7 +118,9 @@
             })
         })
     </script>
-    
+
+
+    {{-- merubah default urutan tabel --}}
     <script>
         $(document).ready( function () {
             $('#myTable').DataTable({
@@ -135,6 +129,7 @@
         });
         } );
     </script>
+    
     {{-- table --}}
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.13.1/datatables.min.js"></script>
 

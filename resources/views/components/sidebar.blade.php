@@ -62,7 +62,7 @@
                 class="btn btn-success btn-lg btn-block btn-icon-split">
                 <i class="fas fa-rocket"></i> Whatsapp
             </a> --}}
-            <a href="https://wa.me/6289617275564?text=Hello%20world!"
+            <a href="https://wa.link/njobhj"
                 class="btn btn-success btn-lg btn-block btn-icon-split">
                 <i class="fas fa-rocket"></i> Whatsapp
             </a>

@@ -37,6 +37,7 @@
                                             <th class="col-sm-1">Log Name</th>
                                             {{-- <th>Description</th> --}}
                                             <th>Event</th>
+                                            <th>User</th>
                                             <th class="">Created At</th>
                                             <th>Subject Type</th>
                                             <th>Properties</th>
@@ -58,6 +59,7 @@
                                                     <span class="badge badge-danger">{{$item->event}}</span>
                                                 @endif
                                             </td>
+                                            <td>{{$item->causer_id}}</td>
                                             <td>{{$item->created_at}}</td>
                                             <td>{{$item->subject_type}}</td>
                                             <td>{{$item->properties}}</td>

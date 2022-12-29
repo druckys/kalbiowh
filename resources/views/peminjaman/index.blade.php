@@ -33,7 +33,6 @@
                                     <thead>
                                         <tr>
                                             <th class="col-1 text-center ">No</th>
-                                            {{-- <th class="col-1">Kode Tools</th> --}}
                                             <th class="col-2">Nama Peralatan</th>
                                             <th class="col-2">Tanggal Pinjam</th>
                                             <th class="col-1">Initial</th>
@@ -47,12 +46,10 @@
                                         @foreach ($LogBooks as $item )
                                         <tr>
                                             <td class="text-center">{{$loop->iteration}}</td>
-                                            {{-- <td>{{$item->tool_code}}</td> --}}
                                             <td>{{$item->nama}}</td>
                                             <td>{{$item->borrow_date}}</td>
                                             <td>{{$item->initial_name}}</td>
                                             <td>{{$item->deskripsi}}</td>
-                                            {{-- <td>{{$item->status}}</td> --}}
                                             <td>
                                                 @if ($item->status == 'Returned')
                                                     <span class="badge badge-primary">Returned</span>
